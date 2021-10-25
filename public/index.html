@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>3AB | Verko</title>
+    <title>GCM | Monitoring System</title>
 
 
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
@@ -24,9 +24,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" href="assets/libraries/Bootstrap/bootstrap.css"> -->
-    <link rel="icon" href="./assets/libraries/dist/img/AdminLTELogo.png" sizes="16x16">
+    <link rel="icon" href="./assets/libraries/dist/img/gcm2.png" sizes="16x16">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="./assets/libraries/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
     <link rel="stylesheet" href="./assets/libraries/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css">
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
@@ -51,92 +53,157 @@
 
     <!-- AngularJS -->
     <!-- <script src="../public/assets/libraries/AngularJS/angular.js"></script> -->
-    <script src="../public/assets/libraries/AngularJS/angular.js"></script>
-    <script src="../public/assets/libraries/AngularJS/angular-route.js"></script>
-    <script src="../public/bower_components/firebase/firebase.js"></script>
-    <script src="../public/bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="./assets/libraries/AngularJS/angular.js"></script>
+    <script src="./assets/libraries/AngularJS/angular-route.js"></script>
+    <script src="./bower_components/firebase/firebase.js"></script>
+    <script src="./bower_components/angularfire/dist/angularfire.js"></script>
     <!-- Firebase -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-database.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
 
     <script>
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         var firebaseConfig = {
-            apiKey: "AIzaSyB7HMVW_VCsyVWINPXI_K3uL58AB7mLZZw",
-            authDomain: "gcm-project-2acad.firebaseapp.com",
-            projectId: "gcm-project-2acad",
-            storageBucket: "gcm-project-2acad.appspot.com",
-            messagingSenderId: "607428698493",
-            appId: "1:607428698493:web:629ba311dd94f550182c14",
-            measurementId: "G-PK2WZXLBXG"
+            apiKey: "AIzaSyC9M7S6_djEMqQInwcvWkirzgfvR-X4r6E",
+            authDomain: "gcm-project-ddc1a.firebaseapp.com",
+            databaseURL: "https://gcm-project-ddc1a-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "gcm-project-ddc1a",
+            storageBucket: "gcm-project-ddc1a.appspot.com",
+            messagingSenderId: "575913287449",
+            appId: "1:575913287449:web:eeb4f460cf2732e38baf88",
+            measurementId: "G-W62XS8B8L8"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         // firebase.analytics();
-        var ref = firebase.database().ref("dataset/users");
+        var ref = firebase.database().ref("/users");
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
 
                 console.log(user);
-                // var temp = firebase.auth().currentUser.photoURL;
-                // // console.log(firebase.auth().currentUser.photoURL);
-                // // console.log(firebase.auth().currentUser.displayName);
-                // if (temp == null) {
-                //     document.getElementById("photoURL").src = "assets/libraries/dist/img/user2-160x160.jpg";
-                // } else {
-                //     document.getElementById("photoURL").src = temp;
+                var temp = firebase.auth().currentUser.photoURL;
+                // console.log(firebase.auth().currentUser.photoURL);
+                // console.log(firebase.auth().currentUser.displayName);
+                if (temp == null) {
+                    document.getElementById("photoURL").src = "assets/libraries/dist/img/user2-160x160.jpg";
+                } else {
+                    document.getElementById("photoURL").src = temp;
+                }
+                if (firebase.auth().currentUser.displayName == null) {
+                    document.getElementById("username").innerHTML = firebase.auth().currentUser.email;
+                } else {
+                    document.getElementById("username").innerHTML = firebase.auth().currentUser.displayName;
+                }
+
+                // var role = sessionStorage.getItem("role");
+
+                // if (role == 'admin') {
+                //     $("#aia").show();
+                //     $("#gan").show();
+                //     $("#sr").show();
+                //     $("#jf").show();
+                //     $("#gcmm").show();
+                //     $("#r8").show();
+                //     $("#reports").show();
+                //     $("#settings").show();
+                //     // $("#ai").hide();
+                //     // $("#logs").hide();
+                //     // $("#settings").hide();
+                // } else if (role == 'encoder') {
+                //     $("#aia").show();
+                //     $("#gan").show();
+                //     $("#sr").show();
+                //     $("#jf").show();
+                //     $("#gcmm").show();
+                //     $("#r8").show();
+                //     // $("#settings").show();
+                //     // $("#settings").hide();
                 // }
-                // if (firebase.auth().currentUser.displayName == null) {
-                //     document.getElementById("username").innerHTML = firebase.auth().currentUser.email;
-                // } else {
-                //     document.getElementById("username").innerHTML = firebase.auth().currentUser.displayName;
-                // }
 
-                // var userVerify = firebase.auth().currentUser;
+                var userVerify = firebase.auth().currentUser;
+                ref.orderByChild("role").once("value")
+                    .then(function (snapshot) {
+                        var exist = snapshot.exists();
+                        var UID = firebase.auth().currentUser.uid;
+                        var role = snapshot.child(UID).child("role").val();
+                        // console.log(UID);
+                        // console.log(snapshot.val());
+                        // console.log(role);
+                        if (role == 'admin') {
+                            $("#aia").show();
+                            $("#gan").show();
+                            $("#sr").show();
+                            $("#jf").show();
+                            $("#gcmm").show();
+                            $("#r8").show();
+                            $("#reports").show();
+                            $("#settings").show();
+                        } else if (role == 'aia') {
+                            $("#aia").show();
+                            // $("#gan").show();
+                            // $("#sr").show();
+                            // $("#jf").show();
+                            // $("#gcmm").show();
+                            // $("#r8").show();
+                        } else if (role == 'gan') {
+                            // $("#aia").show();
+                            $("#gan").show();
+                            // $("#sr").show();
+                            // $("#jf").show();
+                            // $("#gcmm").show();
+                            // $("#r8").show();
+                        } else if (role == 'sr') {
+                            // $("#aia").show();
+                            // $("#gan").show();
+                            $("#sr").show();
+                            // $("#jf").show();
+                            // $("#gcmm").show();
+                            // $("#r8").show();
+                        } else if (role == 'jf') {
+                            // $("#aia").show();
+                            // $("#gan").show();
+                            // $("#sr").show();
+                            $("#jf").show();
+                            // $("#gcmm").show();
+                            // $("#r8").show();
+                        } else if (role == 'gcmm') {
+                            // $("#aia").show();
+                            // $("#gan").show();
+                            // $("#sr").show();
+                            // $("#jf").show();
+                            $("#gcmm").show();
+                            // $("#r8").show();
+                        } else if (role == 'r8') {
+                            // $("#aia").show();
+                            // $("#gan").show();
+                            // $("#sr").show();
+                            // $("#jf").show();
+                            // $("#gcmm").show();
+                            $("#r8").show();
+                        }
 
-                // ref.orderByChild("role").once("value")
-                //     .then(function (snapshot) {
-                //         var exist = snapshot.exists();
-                //         var role = snapshot.child(userVerify.uid).child("role").val();
-                //         var UID = firebase.auth().currentUser.uid;
-                //         //console.log(UID);
-                //         //console.log(snapshot.val());   
-                //         //console.log(role);
-                //         if (role == 'ordinary') {
-                //             // $("#ai").hide();
-                //             // $("#logs").hide();
-                //             // $("#settings").hide();
-                //         } else if (role == 'super') {
-                //             $("#ai").show();
-                //             $("#logs").show();
-                //             // $("#settings").show();
-                //             // $("#settings").hide();
-                //         } else if (role == 'admin') {
-                //             $("#ai").show();
-                //             $("#logs").show();
-                //             $("#settings").show();
-                //         }
-
-                //     });
+                    });
 
 
             } else {
-                console.log("login");
+                // console.log("login");
                 // console.log(window.location.pathname);
                 // window.location.pathname = './login.html';
-                window.location.href = './login.html';
+                window.location.href = './landing.html';
             }
         });
     </script>
 </head>
+
+<!-- <body class="hold-transition sidebar-mini sidebar-closed sidebar-collapse"> -->
 
 <body class="hold-transition sidebar-mini">
 
@@ -148,8 +215,11 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="" role="button"><i class="fas fa-bars"></i></a>
                 </li>
+                <div class="col-sm-12">
+                    <h3 class="m-0 text-dark">GCM Monitoring System</h3>
+                </div>
                 <!-- <li class="nav-item d-none d-sm-inline-block">
                     <a href="#/" class="nav-link">Home</a>
                 </li>
@@ -173,10 +243,10 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#/" role="button"><i
                             class="fas fa-th-large"></i></a>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="fas fa-sliders-h"></i>
@@ -187,9 +257,9 @@
 
 
                         <div class="dropdown-divider"></div>
-                        <a href="#/profile" class="dropdown-item">
+                        <!-- <a href="#/profile" class="dropdown-item">
                             <i class="fas fa-users"></i> Profile
-                        </a>
+                        </a> -->
                         <div class="dropdown-divider"></div>
                         <a href="#/" class="dropdown-item" onclick="signout()">
                             <i class="fas fa-sign-out-alt"></i> Logout
@@ -205,10 +275,11 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="./" class="brand-link">
-                <img src="assets/libraries/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+            <a href="#/" class="brand-link">
+                <img src="assets/libraries/dist/img/gcm2.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Verko Digital Mktg.</span>
+                <span class="brand-text font-weight-light"> GCM</span>
+                <!-- <h5>GCM Update System</h5> -->
             </a>
 
             <!-- Sidebar -->
@@ -221,7 +292,7 @@
                             class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#/profile" class="d-block" id="username"></a>
+                        <a href="#/" class="d-block" id="username"></a>
                     </div>
                 </div>
 
@@ -297,22 +368,105 @@
 
                             </ul>
                         </li>
-                        <li style="display: none;" class="nav-item has-treeview" id="logs">
-                            <a href="#/eventslog" class="nav-link">
-                                <i class="nav-icon fas fa-clipboard-list"></i>
+                        <li style="display: none;" class="nav-item has-treeview" id="aia">
+                            <a href="#/AthletesInAction" class="nav-link">
+                                <i class="nav-icon fas fa-swimmer"></i>
                                 <p>
-                                    Events Log
+                                    Athletes in Action
                                 </p>
                             </a>
                         </li>
-                        <li style="display: none;" class="nav-item" id="settings">
-                            <a href="#/settings" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                        <li style="display: none;" class="nav-item has-treeview" id="gan">
+                            <a href="#/GlobalAidNetwork" class="nav-link">
+                                <i class="nav-icon fas fa-globe-asia"></i>
+                                <p>
+                                    Global Aid Network
+                                </p>
+                            </a>
+                        </li>
+                        <li style="display: none;" class="nav-item has-treeview" id="sr">
+                            <a href="#/StoryRunners" class="nav-link">
+                                <i class="nav-icon fas fa-running"></i>
+                                <p>
+                                    Story Runners
+                                </p>
+                            </a>
+                        </li>
+                        <li style="display: none;" class="nav-item" id="jf">
+                            <a href="#/JesusFilms" class="nav-link">
+                                <i class="nav-icon fas fa-film"></i>
+                                <p>
+                                    Jesus Films
+                                </p>
+                            </a>
+                        </li>
+                        <li style="display: none;" class="nav-item" id="gcmm">
+                            <a href="#/GCMManila" class="nav-link">
+                                <i class="nav-icon fas fa-church"></i>
+                                <p>
+                                    GCM Manila
+                                </p>
+                            </a>
+                        </li>
+                        <li style="display: none;" class="nav-item" id="r8">
+                            <a href="#/R8" class="nav-link">
+                                <i class="nav-icon fab fa-r-project"></i>
+                                <p>
+                                    R8 (Special Project)
+                                </p>
+                            </a>
+                        </li>
+                        <li style="display: none;" class="nav-item has-treeview" id="reports">
+                            <a class="nav-link">
+                                <i class="nav-icon  fas fa-file-alt"> </i>
+                                <p>
+                                    Reports
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#/ReportNational" class="nav-link">
+                                        <i class="nav-icon fa fa-file-pdf"></i>
+                                        <p>National</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#/ReportPerTeam" class="nav-link">
+                                        <i class="nav-icon fa fa-file-pdf"></i>
+                                        <p>Per Team</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li style="display: none;" class="nav-item has-treeview" id="settings">
+                            <a class="nav-link">
+                                <i class="nav-icon  fas fa-cogs"> </i>
                                 <p>
                                     Settings
+                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item" id="addgoal">
+                                    <a href="#/Settings" class="nav-link">
+                                        <i class="nav-icon fas fa-bullseye"></i>
+                                        <p>
+                                            Goal
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#/ReportSettings" class="nav-link">
+                                        <i class="nav-icon fas fa-file"></i>
+                                        <p>Reports</p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -339,17 +493,25 @@
         </aside>
         <!-- /.control-sidebar -->
 
-
-
-
         <!-- Main Footer -->
         <footer class="main-footer">
+            <!-- <a href="https://ref.adbtc.top/956082" target="_blank" border="0" style="  display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;"><img src="https://adbtc.top/promo/banner_468x60.jpg" /></a><br>
+            <a href="https://freebitco.in/?r=7161649" style="  display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;" target="_blank">
+                <img src="https://static1.freebitco.in/banners/468x60-3.png" />
+            </a> -->
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
                 Lets take the next step together!
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2020 <a href="https://verkomarketing.com/">verkomarketing.com</a>.</strong>
+            <strong>Copyright &copy; 2021 <a
+                    href="https://globalchurchmovements.org/">globalchurchmovements.org</a>.</strong>
             All rights reserved.
         </footer>
     </div>
@@ -370,18 +532,27 @@
 
     <script src="app.js"></script>
     <!-- must be below AngularJS imports -->
+    <!-- PDF Make -->
+    <script src="./assets/js/pdfmake/build/pdfmake.js"></script>
+    <script src="./assets/js/pdfmake/build/vfs_fonts.js"></script>
+
     <!-- <script src="controllers/home.js"></script> -->
     <script src="controllers/DashboardCtrl.js"></script>
     <script src="controllers/ProfileCtrl.js"></script>
-    <script src="controllers/CustomCtrl.js"></script>
-    <script src="controllers/NativeCtrl.js"></script>
-    <script src="controllers/BotOnlyCtrl.js"></script>
-    <script src="controllers/MachineLearnCtrl.js"></script>
-    <script src="controllers/DeepLearnCtrl.js"></script>
-    <script src="controllers/EventsLogCtrl.js"></script>
+    <script src="controllers/AIACtrl.js"></script>
+    <script src="controllers/GANCtrl.js"></script>
+    <script src="controllers/SRCtrl.js"></script>
+    <script src="controllers/JFCtrl.js"></script>
+    <script src="controllers/GCMMCtrl.js"></script>
+    <script src="controllers/R8Ctrl.js"></script>
+    <script src="controllers/RNCtrl.js"></script>
+    <script src="controllers/RPTCtrl.js"></script>
     <script src="controllers/SettingsCtrl.js"></script>
+    <script src="controllers/ReportSettingsCtrl.js"></script>
 
     <script>
+        var developer = "Carl Jason Lignes";
+
         function signout() {
             window.localStorage.removeItem("username");
             firebase.auth().signOut().then(function () {

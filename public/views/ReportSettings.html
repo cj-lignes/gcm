@@ -1,0 +1,373 @@
+<style>
+    /* The Modal (background) */
+
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+
+    .modal-content {
+        color: #414242;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 30px 60px;
+        width: 500px;
+        /* Could be more or less, depending on screen size */
+        font-family: Lato;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.5px;
+        -webkit-font-smoothing: antialiased;
+        /* Rectangle 2 Copy 3: */
+        background: #FFFFFF;
+        border: 1px solid #9B9C9D;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.20);
+        border-radius: 6px;
+    }
+
+    .modal-content a {
+        color: #636464;
+    }
+
+    .modal-content>h1 {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    button#accept {
+        margin: 30px auto;
+        display: block;
+        border: 1px solid #fc4c02;
+        border-radius: 3px;
+        background: #fff;
+        color: #fc4c02;
+        font-size: 16px;
+        height: 48px;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+
+    .safety {
+        color: #9B9C9D;
+        font-size: 12px;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+    }
+
+    .close {
+        background: #606061;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+
+    .close:hover {
+        background: #00d9ff;
+    }
+</style>
+
+<div>
+    <h2>&nbsp;Report Settings</h2>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="dropdownYear">&nbsp; Ministry Year</label>
+            <select class="custom-select form-control" id="dropdownYear">
+                <!-- <option selected="">Select</option>
+                <option value="Single Proprietor">Single Proprietor</option>
+                <option value="Partnership">Partnership</option>
+                <option value="Corporation">Corporation</option> -->
+                <option value="select" selected>Select</option>
+                <option value="2021">2021-2022</option>
+                <option value="2022">2022-2023</option>
+                <option value="2023">2023-2024</option>
+                <option value="2024">2024-2025</option>
+                <option value="2025">2025-2026</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <!-- <label for="team">Teams</label>
+            <select class="custom-select form-control" id="team">
+                <option value="aia" selected="selected">Athletes in Action</option>
+                <option value="gan">Global Aid Network</option>
+                <option value="sr">Story Runners</option>
+                <option value="jf">Jesus Films</option>
+                <option value="gcmm">GCM Manila</option>
+                <option value="r8">R8</option>
+            </select> -->
+        </div>
+    </div>
+    <h4>&nbsp;From X</h4>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="Xevangelism">&nbsp; Evangelism</label>
+            <input class="form-control" ng-model="Xevangelism" id="Xevangelism" autocomplete="off" type="text"
+                placeholder="10000">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Xsfu">Started Follow Up</label>
+            <input class="form-control" ng-model="Xsfu" id="Xsfu" type="text" autocomplete="off" placeholder="5000">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Xst">Started Training</label>
+            <input class="form-control" ng-model="Xst" id="Xst" type="text" autocomplete="off" placeholder="1000">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="Xcmd">&nbsp; CMD</label>
+            <input class="form-control" ng-model="Xcmd" id="Xcmd" type="text" autocomplete="off" placeholder="500">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="Xchurches">Churches</label>
+            <input class="form-control" ng-model="Xchurches" id="Xchurches" type="text" autocomplete="off"
+                placeholder="250">
+        </div>
+        <!-- <div class="col-md-4 mb-3">
+            <label for="budget">Teams Budget</label>
+            <input class="form-control" ng-model="budget" id="budget" type="text" autocomplete="off"
+                placeholder="1000000">
+        </div> -->
+    </div>
+    <br>
+    <h4>&nbsp;To Y</h4>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="Yevangelism">&nbsp; Evangelism</label>
+            <input class="form-control" ng-model="Yevangelism" id="Yevangelism" autocomplete="off" type="text"
+                placeholder="10000">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Ysfu">Started Follow Up</label>
+            <input class="form-control" ng-model="Ysfu" id="Ysfu" type="text" autocomplete="off" placeholder="5000">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Yst">Started Training</label>
+            <input class="form-control" ng-model="Yst" id="Yst" type="text" autocomplete="off" placeholder="1000">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="Ycmd">&nbsp; CMD</label>
+            <input class="form-control" ng-model="Ycmd" id="Ycmd" type="text" autocomplete="off" placeholder="500">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="Ychurches">Churches</label>
+            <input class="form-control" ng-model="Ychurches" id="Ychurches" type="text" autocomplete="off"
+                placeholder="250">
+        </div>
+        <p><i style="color:red;">&nbsp;&nbsp;&nbsp; Note: All fields are required. Just put 0 if
+                there's no input</i>
+        </p>
+        <!-- <div class="col-md-4 mb-3">
+            <label for="budget">Teams Budget</label>
+            <input class="form-control" ng-model="budget" id="budget" type="text" autocomplete="off"
+                placeholder="1000000">
+        </div> -->
+    </div>
+    <button class="btn btn-success" type="button" ng-click="saveXY()" style="float: right;">Save</button>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="myModalEdit" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit User</h4>
+                    <button type="button" class="close" data-dismiss="modal" ng-click="close()">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="">Username</label>
+                        <div class="">
+                            <input type="text" class="form-control" ng-value="newUsername"
+                                ng-model="clickedUser.username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="">Email</label>
+                        <div class="0">
+                            <input type="text" class="form-control" ng-value="newEmail" ng-model="clickedUser.email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="">Role</label>
+                        <div class="">
+                            <!-- <select ng-if="clickedUser.role == 'ordinary'">
+    <option type="text" class="form-control" ng-value="newRole" ng-model="clickedUser.role">{{clickedUser.role}}</option>
+        <option ng-repeat="role in roleDetails1">{{role.rolename}}</option> 
+</select>
+
+<select ng-if="clickedUser.role == 'investor'">
+    <option type="text" class="form-control" ng-value="newRole" ng-model="clickedUser.role">{{clickedUser.role}}</option>
+        <option ng-repeat="role in roleDetails2">{{role.rolename}}</option> 
+</select>
+
+<select ng-if="clickedUser.role == 'admin'">
+    <option type="text" class="form-control" ng-value="newRole" ng-model="clickedUser.role">{{clickedUser.role}}</option>
+        <option ng-repeat="role in roleDetails3">{{role.rolename}}</option> 
+</select> -->
+                            <select ng-model="clickedUser.role">
+                                <option value="ordinary">Ordinary</option>
+                                <option value="super">Super User</option>
+                                <option value="admin">Admin</option>
+                                <!-- <option value="" selected></option> -->
+                                <!-- <option ng-if="clickedUser.role =='ordinary'" ng-repeat="role in roleDetails1">{{role.rolename}}</option> 
+    <option ng-if="clickedUser.role =='investor'" ng-repeat="role in roleDetails2">{{role.rolename}}</option> 
+    <option ng-if="clickedUser.role =='admin'" ng-repeat="role in roleDetails3">{{role.rolename}}</option>  -->
+                            </select>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn btn-info" data-dismiss="modal"
+                        ng-click="updateUser()">Save</button>
+                    <button type="button" class="btn btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalDelete" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Are you sure?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+
+                    <p>You want to delete <strong style="color: red;">{{clickedUser.username}}'s</strong>
+                        information...
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        ng-click="deleteUser()">Yes</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit User</h4>
+                <button type="button" ng-click="close()">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="">Username</label>
+                    <div class="">
+                        <input type="text" class="form-control" ng-value="newUsername" ng-model="clickedUser.username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="">Email</label>
+                    <div class="0">
+                        <input type="text" class="form-control" ng-value="newEmail" ng-model="clickedUser.email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="">Role</label>
+                    <div class="">
+                        <select ng-model="clickedUser.role">
+                            <option value="ordinary">Ordinary</option>
+                            <option value="super">Super User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn btn-info" data-dismiss="modal"
+                    ng-click="updateUser()">Save</button>
+                <button type="button" class="btn btn btn-danger" ng-click="close()">Cancel</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="myModal2" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Are you sure?</h4>
+                <button type="button" ng-click="close2()">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+                <p>You want to delete <strong style="color: red;">{{clickedUser.username}}'s</strong> information...
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button>
+                <button type="button" class="btn btn-info" ng-click="close2()">No</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>

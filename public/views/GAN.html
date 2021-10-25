@@ -1,0 +1,364 @@
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-4">
+                            <!-- <h3 class="m-0 text-dark">Athletes In Action</h3> -->
+                            <label for="mYear">Ministry Year</label>
+                            <select class="custom-select form-control" id="mYear" ng-change="mYear()"
+                                ng-model="ministryYear">
+                                <!-- <option value="2016">2016-2017</option>
+                                <option value="2017">2017-2018</option>
+                                <option value="2018">2018-2019</option>
+                                <option value="2019">2019-2020</option>
+                                <option value="2020">2020-2021</option> -->
+                                <option value="2021">2021-2022</option>
+                                <option value="2022">2022-2023</option>
+                                <option value="2023">2023-2024</option>
+                                <option value="2024">2024-2025</option>
+                                <option value="2025">2025-2026</option>
+                            </select>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-8">
+
+                            <button class="btn btn-success" type="button" data-toggle="modal" data-backdrop="static"
+                                data-keyboard="false" data-target="#myModal" ng-click="" style="float: right;">Add
+                                Data</button>
+                            <!-- <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#/">Home</a></li>
+                                <li class="breadcrumb-item active">Athletes in Action</li>
+                            </ol> -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Current Lead Needed</h4>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Evangelism</span>
+                                    <span class="info-box-number" id="evan_num">
+                                        ---
+                                        <small></small>
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-fire"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Started FU</span>
+                                    <span class="info-box-number">---</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+
+                        <!-- fix for small devices only -->
+                        <div class="clearfix hidden-md-up"></div>
+
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-warning elevation-1"><i
+                                        class="fas fa-lightbulb"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Started Training</span>
+                                    <span class="info-box-number">---</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Current Lag Needed</h4>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-gradient-primary"><i class="fas fa-user"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">CMDs</span>
+                                    <span class="info-box-number">
+                                        ---
+                                        <small></small>
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-gradient-secondary"><i class="fas fa-home"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Churches</span>
+                                    <span class="info-box-number">---</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Your Teams Budget</h4>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-danger"><i class="fas fa-money-check-alt"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Budget</span>
+                                    <span class="info-box-number">
+                                        ---
+                                        <small></small>
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+
+                    </div>
+
+                    <br>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Details</h3>
+                                <a href="" class="btn btn-info float-right">Refresh</a>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th style="text-align:center;">Date</th>
+                                            <th style="text-align:center;">Evangelism</th>
+                                            <th style="text-align:center;">Started FU</th>
+                                            <th style="text-align:center;">Started Training</th>
+                                            <th style="text-align:center;">CMDs</th>
+                                            <th style="text-align:center;">Churches Planted</th>
+                                            <!-- <th style="text-align:center;">Budget</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="info in data">
+                                        <tr>
+                                            <td>{{$index + 1}}</td>
+                                            <td style="text-align:center;">{{months[info.month - 1]}} {{info.year}}</td>
+                                            <td style="text-align:center;">{{info.evangelism}}</td>
+                                            <td style="text-align:center;">{{info.sfu}}</td>
+                                            <td style="text-align:center;">{{info.st}}</td>
+                                            <td style="text-align:center;">{{info.cmd}}</td>
+                                            <td style="text-align:center;">{{info.churches}}</td>
+                                        </tr>
+                                        <tr ng-if="data">
+                                            <td></td>
+                                            <td style="text-align:center;"><b>Average</b></td>
+                                            <td style="text-align:center;">{{ave_evan}}</td>
+                                            <td style="text-align:center;">{{ave_sfu}}</td>
+                                            <td style="text-align:center;">{{ave_st}}</td>
+                                            <td style="text-align:center;">{{ave_cmd}}</td>
+                                            <td style="text-align:center;">{{ave_churches}}</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="col-md-12">
+                        <p class="text-center">
+                            <strong>Goal Completion</strong>
+                        </p>
+
+                        <div class="progress-group">
+                            Evangelism
+                            <span class="float-right"><b>{{evancompletion}}</b>/{{goal.evangelism}}</span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-success" id="evan_prog" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <!-- /.progress-group -->
+
+                        <div class="progress-group">
+                            Started FU
+                            <span class="float-right"><b>{{sfucompletion}}</b>/{{goal.sfu}}</span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-info" id="sfu_prog" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- /.progress-group -->
+                        <div class="progress-group">
+                            <span class="progress-text">Started Training</span>
+                            <span class="float-right"><b>{{stcompletion}}</b>/{{goal.st}}</span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-warning" id="st_prog" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- /.progress-group -->
+                        <div class="progress-group">
+                            CMDs
+                            <span class="float-right"><b>{{cmdcompletion}}</b>/{{goal.cmd}}</span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-gradient-primary" id="cmd_prog" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <!-- /.progress-group -->
+                        <div class="progress-group">
+                            Churches
+                            <span class="float-right"><b>{{churchescompletion}}</b>/{{goal.churches}}</span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-danger" id="churches_prog" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <!-- /.progress-group -->
+                    </div>
+
+
+                    <!-- <button style="display: block;" class="btn btn-success" type="button" data-toggle="modal"
+                        data-target="#myModal" ng-click="" style="float: right;">Add</button>
+                    <br> -->
+
+
+                    <!-- <div class="col-sm-6">
+                        <h3 class="m-0 text-dark">Add Data</h3>
+                    </div>
+
+                    <br>
+
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="evangelism">Evangelism</label>
+                            <input class="form-control" ng-model="evangelism" id="evangelism" type="text"
+                                placeholder="1000" required="">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="sfu">Started FU</label>
+                            <input class="form-control" ng-model="sfu" id="sfu" type="text" placeholder="500"
+                                required="">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="st">Started Training</label>
+                            <input class="form-control" ng-model="st" id="st" type="text" placeholder="250" required="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="cmd">CMDs</label>
+                            <input class="form-control" ng-model="cmd" id="cmd" type="text" placeholder="100"
+                                required="">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="churches">Churches</label>
+                            <input class="form-control" ng-model="churches" id="churches" type="text" placeholder="50"
+                                required="">
+                        </div>
+                    </div>
+                    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#myModal" ng-click=""
+                        style="float: right;">Add</button> -->
+
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Add Data</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="evangelism">Evangelism</label>
+                                        <input class="form-control" ng-model="evangelism" id="evangelism"
+                                            autocomplete="off" type="text" placeholder="1000" required="">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="sfu">Started FU</label>
+                                        <input class="form-control" ng-model="sfu" id="sfu" type="text"
+                                            autocomplete="off" placeholder="500" required="">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="st">Started Training</label>
+                                        <input class="form-control" ng-model="st" id="st" type="text" placeholder="250"
+                                            autocomplete="off" required="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="cmd">CMDs</label>
+                                        <input class="form-control" ng-model="cmd" id="cmd" type="text"
+                                            autocomplete="off" placeholder="100" required="">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="churches">Churches</label>
+                                        <input class="form-control" ng-model="churches" id="churches" type="text"
+                                            autocomplete="off" placeholder="50" required="">
+                                    </div>
+                                    <p><i style="color:red;">&nbsp;&nbsp; Note: All fields are required. Just put 0 if
+                                            there's no input</i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-success" ng-click="addData()">Save</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.content -->
+
+            <!-- OPTIONAL SCRIPTS -->
+            <!-- <script src="./assets/libraries/plugins/chart.js/Chart.min.js"></script>
+            <script src="./assets/libraries/dist/js/demo.js"></script>
+            <script src="./assets/libraries/dist/js/pages/dashboard3.js"></script> -->

@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Verko | Log in</title>
+    <title>GCM | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <script src="./assets/libraries/plugins/jquery/jquery.min.js"></script>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" href="assets/libraries/Bootstrap/bootstrap.css"> -->
-    <link rel="icon" href="./assets/libraries/dist/img/AdminLTELogo.png" sizes="16x16">
+    <link rel="icon" href="./assets/libraries/dist/img/gcm2.png" sizes="16x16">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./assets/libraries/plugins/fontawesome-free/css/all.min.css">
@@ -22,24 +22,40 @@
     <link rel="stylesheet" href="./assets/libraries/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-    <script>
-        var config = {
-            apiKey: "AIzaSyA-fqW8NmUfA6YIMMJ-HLRuTVRJtC7b6mw",
-            authDomain: "geocoord-1532713040637.firebaseapp.com",
-            databaseURL: "https://geocoord-1532713040637.firebaseio.com",
-            projectId: "geocoord-1532713040637"
-        };
 
-        firebase.initializeApp(config);
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyC9M7S6_djEMqQInwcvWkirzgfvR-X4r6E",
+            authDomain: "gcm-project-ddc1a.firebaseapp.com",
+            databaseURL: "https://gcm-project-ddc1a-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "gcm-project-ddc1a",
+            storageBucket: "gcm-project-ddc1a.appspot.com",
+            messagingSenderId: "575913287449",
+            appId: "1:575913287449:web:eeb4f460cf2732e38baf88",
+            measurementId: "G-W62XS8B8L8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
     </script>
 </head>
 
 <body class="hold-transition login-page">
     <div class="login-box" id="loginStyle" style="display: block;">
         <div class="login-logo">
-            <a href="./index2.html"><b>Verko</b>Digital Mktg.</a>
+            <!-- <a href="#/"><b>GCM</b> Update</a> -->
+            <h5><b>GCM</b> Monitoring System</h5>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -47,9 +63,7 @@
                 <p class="login-box-msg">Sign in to start your session</p>
 
                 <div class="text-danger wrapper text-center" id="messages"></div>
-                <br>
-
-                <form action="./index3.html" method="post">
+                <!-- <form action="./index3.html" method="post">
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" id="emailSignIn" placeholder="Email">
                         <div class="input-group-append">
@@ -71,35 +85,34 @@
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">
-                Remember Me
-              </label>
+                                    Remember Me
+                                </label>
                             </div>
                         </div>
-                        <!-- /.col -->
                         <div class="col-4">
-                            <button type="button" class="btn btn-primary btn-block" id="btnSignin" onclick="signin()">Sign In</button>
+                            <button type="button" class="btn btn-primary btn-block" id="btnSignin"
+                                onclick="signin()">Sign In</button>
                         </div>
-                        <!-- /.col -->
                     </div>
-                </form>
+                </form> -->
 
                 <div class="social-auth-links text-center mb-3">
-                    <p>- OR -</p>
+                    <!-- <p>- OR -</p> -->
                     <!-- <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a> -->
                     <a href="#" class="btn btn-block btn-danger" onclick="googleSignin()">
-                        <i class="fab fa-google-plus mr-2"></i> Sign up using Google
+                        <i class="fab fa-google mr-2"></i> Sign In using Google
                     </a>
                 </div>
                 <!-- /.social-auth-links -->
 
-                <p class="mb-1">
+                <!-- <p class="mb-1">
                     <a href="#" id="btnToForgot">I forgot my password</a>
                 </p>
                 <p class="mb-0">
                     <a href="#" class="text-center" id="btnToRegister">Register a new membership</a>
-                </p>
+                </p> -->
             </div>
             <!-- /.login-card-body -->
         </div>
@@ -156,13 +169,14 @@
                             <div class="icheck-primary">
                                 <input type="checkbox" id="agreeTerms" name="terms" value="agree">
                                 <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
-              </label>
+                                    I agree to the <a href="#">terms</a>
+                                </label>
                             </div>
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="button" class="btn btn-primary btn-block" id="btnRegister" onclick="register()">Register</button>
+                            <button type="button" class="btn btn-primary btn-block" id="btnRegister"
+                                onclick="register()">Register</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -209,7 +223,8 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button type="button" class="btn btn-primary btn-block" onclick="resetPassword()">Request new password</button>
+                            <button type="button" class="btn btn-primary btn-block" onclick="resetPassword()">Request
+                                new password</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -234,38 +249,38 @@
     <script src="./assets/libraries/dist/js/adminlte.min.js"></script>
 
     <script>
-        $('#btnToRegister').click(function() {
-            $('#loginStyle').hide();
-            $('#forgotStyle').hide();
-            $('#registerStyle').show();
-            console.log('To Register');
-        });
-        $('#btnToRegister2').click(function() {
-            $('#loginStyle').hide();
-            $('#forgotStyle').hide();
-            $('#registerStyle').show();
-            console.log('To Register');
-        });
+        // $('#btnToRegister').click(function () {
+        //     $('#loginStyle').hide();
+        //     $('#forgotStyle').hide();
+        //     $('#registerStyle').show();
+        //     console.log('To Register');
+        // });
+        // $('#btnToRegister2').click(function () {
+        //     $('#loginStyle').hide();
+        //     $('#forgotStyle').hide();
+        //     $('#registerStyle').show();
+        //     console.log('To Register');
+        // });
 
-        $('#btnToLogin').click(function() {
-            $('#registerStyle').hide();
-            $('#forgotStyle').hide();
-            $('#loginStyle').show();
-            console.log('To Login');
-        });
-        $('#btnToLogin2').click(function() {
-            $('#registerStyle').hide();
-            $('#forgotStyle').hide();
-            $('#loginStyle').show();
-            console.log('To Login');
-        });
+        // $('#btnToLogin').click(function () {
+        //     $('#registerStyle').hide();
+        //     $('#forgotStyle').hide();
+        //     $('#loginStyle').show();
+        //     console.log('To Login');
+        // });
+        // $('#btnToLogin2').click(function () {
+        //     $('#registerStyle').hide();
+        //     $('#forgotStyle').hide();
+        //     $('#loginStyle').show();
+        //     console.log('To Login');
+        // });
 
-        $('#btnToForgot').click(function() {
-            $('#registerStyle').hide();
-            $('#loginStyle').hide();
-            $('#forgotStyle').show();
-            console.log('To Forgot');
-        });
+        // $('#btnToForgot').click(function () {
+        //     $('#registerStyle').hide();
+        //     $('#loginStyle').hide();
+        //     $('#forgotStyle').show();
+        //     console.log('To Forgot');
+        // });
 
         function register() {
             var username = $('#username').val()
@@ -276,7 +291,7 @@
             localStorage.setItem("register", "custom");
 
             firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then(function(user) {
+                .then(function (user) {
                     console.log(user.uid);
                     $('#registerStyle').hide();
                     $('#forgotStyle').hide();
@@ -288,7 +303,7 @@
                     // username = "";
                     // email = "";
                     // password = "";
-                }).catch(function(error) {
+                }).catch(function (error) {
                     console.log(error.code);
                     console.log(error.message);
                     document.getElementById("messages2").innerHTML = error.message;
@@ -301,12 +316,12 @@
             var email = $('#emailSignIn').val()
             var password = $('#passwordSignIn').val()
             firebase.auth().signInWithEmailAndPassword(email, password)
-                .then(function(user) {
+                .then(function (user) {
                     // console.log(user.uid);
                     // window.location.pathname = '/3AB/public/index.html';
                     window.location.href = './index.html';
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log(error);
                     document.getElementById("messages").innerHTML = error.message;
                 });
@@ -316,45 +331,163 @@
         var provider = new firebase.auth.GoogleAuthProvider();
 
         function googleSignin() {
-            localStorage.setItem("register", "gmail");
+            // localStorage.setItem("register", "gmail");
+            // sessionStorage.setItem("register", "gmail");
+            var ref = firebase.database().ref("users");
+
             firebase.auth()
 
-            .signInWithPopup(provider).then(function(result) {
-                // window.location.pathname = '/3AB/public/index.html';
-                window.location.href = './index.html';
-                var token = result.credential.accessToken;
-                var user = result.user;
+                .signInWithPopup(provider).then(function (result) {
+                    // window.location.pathname = '/3AB/public/index.html';
+                    var token = result.credential.accessToken;
+                    var user = result.user;
+                    var role, permitted;
 
-                console.log(token)
-                console.log(user)
-            }).catch(function(error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
+                    console.log(token)
+                    console.log(user)
+                    console.log(user.email)
 
-                console.log(error.code)
-                console.log(error.message)
-            });
+                    if (user.email == "carllignes@gmail.com" || user.email == "joy.bobis@ccc.org.ph" || user
+                        .email == "olin.galan@ccc.org.ph" || user
+                        .email == "thebelovedproject21@gmail.com") {
+                        // window.location.href = './index.html';
+                        sessionStorage.setItem("role", "admin");
+                        role = "admin";
+                        permitted = true;
+                        console.log("Admin");
+                    } else if (user.email == "ryan.elizaga@ccc.org.ph" || user
+                        .email == "jaysonlignes@gmail.com") {
+                        // console.log("Encoder");
+                        // sessionStorage.setItem("role", "encoder");
+                        permitted = true;
+                        role = "aia";
+                    } else if (user.email == "jomari.espartinez@ccc.org.ph") {
+                        // console.log("Encoder");
+                        // sessionStorage.setItem("role", "encoder");
+                        permitted = true;
+                        role = "gcmm";
+                    } else if (user.email == "tony.natividad@ccc.org.ph") {
+                        // console.log("Encoder");
+                        // sessionStorage.setItem("role", "encoder");
+                        permitted = true;
+                        role = "jf";
+                    }
+                    //  else if (user.email == "cj.lignes@gmail.com") {
+                    //     // console.log("Encoder");
+                    //     // sessionStorage.setItem("role", "encoder");
+                    //     permitted = true;
+                    //     role = "gan";
+                    // } else if (user.email == "cj.lignes@gmail.com") {
+                    //     // console.log("Encoder");
+                    //     // sessionStorage.setItem("role", "encoder");
+                    //     permitted = true;
+                    //     role = "sr";
+                    // }   else if (user.email == "cj.lignes@gmail.com") {
+                    //     // console.log("Encoder");
+                    //     // sessionStorage.setItem("role", "encoder");
+                    //     permitted = true;
+                    //     role = "r8";
+                    // } 
+                    else {
+                        document.getElementById("messages").innerHTML =
+                            "You need permission to login. Contact our support team thru this email (thebelovedproject21@gmail.com)";
+                        permitted = false;
+                        console.log("Not permitted to login");
+                    }
+
+                    if (permitted) {
+                        ref.orderByChild("email").equalTo(user.email).once("value")
+                            .then(function (snapshot) {
+
+                                //Check if email is already exist in real time database
+                                var exist = snapshot.exists();
+                                if (!exist) {
+                                    var user = firebase.auth().currentUser;
+                                    var userId = user.uid;
+                                    sessionStorage.setItem("currentUser", userId);
+                                    //Create a user profile in the DB
+                                    ref.once("value")
+                                        .then(function (snapshot) {
+                                            //check if exist
+                                            var r = snapshot.child(userId).exists();
+                                            if (r !== true) {
+                                                ref.child(userId).set({
+                                                    username: user.displayName,
+                                                    photoURL: user.photoURL,
+                                                    email: user.email,
+                                                    role: role
+
+                                                })
+
+                                            }
+                                            window.location.href = './index.html';
+                                            return;
+                                        });
+                                    // window.location.href = './completion.html';
+                                } else {
+                                    var userVerify = firebase.auth().currentUser;
+                                    var userId = userVerify.uid;
+                                    sessionStorage.setItem("currentUser", userId);
+                                    window.location.href = './index.html';
+                                    // if (userVerify.emailVerified) {
+
+                                    // var ref2 = firebase.database().ref("users/" + userVerify.uid);
+                                    // ref2.once("value")
+                                    //     .then(function (snapshot) {
+
+                                    //         if (snapshot.hasChild("id")) {
+                                    //             // app(user);
+                                    //             window.location.href = './index.html';
+                                    //             console.log("Signed in");
+                                    //         } else {
+                                    //             // $state.go('access.completion');
+                                    //             window.location.href = './completion.html';
+                                    //             // $("#myModalCompletion").modal("show");
+                                    //             console.log("don't have address");
+                                    //         }
+
+                                    //     });
+                                }
+
+
+                            });
+
+                    } else {
+                        console.log("Not Permitted!");
+                    }
+
+
+
+
+
+                }).catch(function (error) {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+
+                    console.log(error.code)
+                    console.log(error.message)
+                });
         }
 
         function googleSignin2() {
             localStorage.setItem("register", "gmail");
             firebase.auth()
 
-            .signInWithPopup(provider).then(function(result) {
-                // window.location.pathname = '/3AB/public/index.html';
-                window.location.href = './index.html';
-                var token = result.credential.accessToken;
-                var user = result.user;
+                .signInWithPopup(provider).then(function (result) {
+                    // window.location.pathname = '/3AB/public/index.html';
+                    window.location.href = './index.html';
+                    var token = result.credential.accessToken;
+                    var user = result.user;
 
-                console.log(token)
-                console.log(user)
-            }).catch(function(error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
+                    console.log(token)
+                    console.log(user)
+                }).catch(function (error) {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
 
-                console.log(error.code)
-                console.log(error.message)
-            });
+                    console.log(error.code)
+                    console.log(error.message)
+                });
         }
 
         function resetPassword() {
@@ -362,14 +495,15 @@
             console.log(email);
 
 
-            firebase.auth().sendPasswordResetEmail(email).then(function() {
+            firebase.auth().sendPasswordResetEmail(email).then(function () {
                     // $scope.user.resetEmail = "";
                     // $scope.authError = 'A reset link sent to your email address. It will expire after 2 hours.';
-                    document.getElementById("messages3").innerHTML = "A reset link sent to your email address. It will expire after 2 hours.";
+                    document.getElementById("messages3").innerHTML =
+                        "A reset link sent to your email address. It will expire after 2 hours.";
                     console.log('A reset link sent to your email address. It will expire after 2 hours.');
                     document.getElementById("forgotEmail").innerHTML = " ";
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     // $scope.authError = true;
                     // $scope.authError = error.message;
                     console.log(error);

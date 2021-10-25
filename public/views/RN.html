@@ -1,0 +1,410 @@
+<style>
+    .toolbar {
+        display: none !important;
+        /* hide PDF viewer toolbar */
+    }
+
+    #viewerContainer {
+        top: 0 !important;
+        /* move doc up into empty bar space */
+    }
+
+    #RNViewer {
+        padding: 0 !important;
+        overflow: hidden;
+    }
+
+    .pdf-viewer-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 12px;
+        height: 50px;
+        width: 100vw;
+        margin: 0;
+        background-color: #161616;
+    }
+
+    .pdf-viewer {
+        width: 100vw;
+        height: calc(100vh - 50px);
+    }
+</style>
+
+<div ng-controller="SettingsCtrl">
+    <!-- <h2>&nbsp; National Report</h2> -->
+    <div class="col-sm-4">
+        <!-- <h3 class="m-0 text-dark">Athletes In Action</h3> -->
+        <label for="mYear">Ministry Year</label>
+        <select class="custom-select form-control" id="mYear" ng-change="mYear()" ng-model="ministryYear">
+            <!-- <option value="2016">2016-2017</option>
+            <option value="2017">2017-2018</option>
+            <option value="2018">2018-2019</option>
+            <option value="2019">2019-2020</option>
+            <option value="2020">2020-2021</option> -->
+            <option value="2021">2021-2022</option>
+            <option value="2022">2022-2023</option>
+            <option value="2023">2023-2024</option>
+            <option value="2024">2024-2025</option>
+            <option value="2025">2025-2026</option>
+        </select>
+    </div>
+    <br>
+
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <!-- <h3 class="card-title"></h3> -->
+                <button type="button" class="btn btn-info float-right" ng-click="print()">Print</button>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <!-- <th style="width: 10px">#</th> -->
+                            <th style="text-align:center;">Team's LEAD Measures by June {{deadline}} (preferably 3-4
+                                only)</th>
+                            <th style="text-align:center;">From X</th>
+                            <th style="text-align:center;">To Y</th>
+                            <th style="text-align:center;">Current X (to be updated quarterly for accountability)</th>
+
+                            <!-- <th>Progress</th>
+                            <th style="width: 40px">Label</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>1.</td> -->
+                            <td>Evangelism</td>
+                            <td style="text-align:center;" id="Xevangelism">---</td>
+                            <td style="text-align:center;" id="Yevangelism">---</td>
+                            <td style="text-align:center;" id="currentevangelism">---</td>
+                            <!-- <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">0</td> -->
+                            <!-- <td>
+                                <div class="progress progress-xs">
+                                    <div id="mydiv" class="progress-bar progress-bar-danger"
+                                        style="width: 70%">
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-danger">10%</span></td> -->
+                        </tr>
+                        <tr>
+                            <!-- <td>2.</td> -->
+                            <td>Started FU</td>
+                            <td style="text-align:center;" id="Xsfu">---</td>
+                            <td style="text-align:center;" id="Ysfu">---</td>
+                            <td style="text-align:center;" id="currentsfu">---</td>
+                            <!-- <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">₱1,080,000.00</td> -->
+                            <!-- <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-warning">70%</span></td> -->
+                        </tr>
+                        <tr>
+                            <!-- <td>3.</td> -->
+                            <td>Started Trainig</td>
+                            <td style="text-align:center;" id="Xst">---</td>
+                            <td style="text-align:center;" id="Yst">---</td>
+                            <td style="text-align:center;" id="currentst">---</td>
+                            <!-- <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">₱57,000.00</td> -->
+                            <!-- <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-primary">30%</span></td> -->
+                        </tr>
+                        <!-- <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr> -->
+                        <tr>
+                            <td style="text-align:center;"> <strong>LAG MEASURES</strong></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <!-- <td>4.</td> -->
+                            <td>CMDs</td>
+                            <td style="text-align:center;" id="Xcmd">---</td>
+                            <td style="text-align:center;" id="Ycmd">---</td>
+                            <td style="text-align:center;" id="currentcmd">---</td>
+                            <!-- <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">₱4,399,000.00</td> -->
+                            <!-- <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-success">90%</span></td> -->
+                        </tr>
+                        <tr>
+                            <!-- <td>5.</td> -->
+                            <td>Churches Planted</td>
+                            <td style="text-align:center;" id="Xchurches">---</td>
+                            <td style="text-align:center;" id="Ychurches">---</td>
+                            <td style="text-align:center;" id="currentchurches">---</td>
+                            <!-- <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">₱1,132,000.00</td> -->
+                            <!-- <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-success">90%</span></td> -->
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="text-align:center;" id="quarters"><b>---</b></td>
+                            <!-- <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">₱1,368,000.00</td> -->
+                            <!-- <td>
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-success">90%</span></td> -->
+                        </tr>
+                        <!-- <tr>
+                            <td></td>
+                            <td style="text-align:center;">Total</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">---</td>
+                            <td style="text-align:center;">₱8,036,000.00</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+            <!-- <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+            </div> -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="myModalEdit" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit User</h4>
+                    <button type="button" class="close" data-dismiss="modal" ng-click="close()">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="">Username</label>
+                        <div class="">
+                            <input type="text" class="form-control" ng-value="newUsername"
+                                ng-model="clickedUser.username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="">Email</label>
+                        <div class="0">
+                            <input type="text" class="form-control" ng-value="newEmail" ng-model="clickedUser.email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="">Role</label>
+                        <div class="">
+                            <!-- <select ng-if="clickedUser.role == 'ordinary'">
+    <option type="text" class="form-control" ng-value="newRole" ng-model="clickedUser.role">{{clickedUser.role}}</option>
+        <option ng-repeat="role in roleDetails1">{{role.rolename}}</option> 
+</select>
+
+<select ng-if="clickedUser.role == 'investor'">
+    <option type="text" class="form-control" ng-value="newRole" ng-model="clickedUser.role">{{clickedUser.role}}</option>
+        <option ng-repeat="role in roleDetails2">{{role.rolename}}</option> 
+</select>
+
+<select ng-if="clickedUser.role == 'admin'">
+    <option type="text" class="form-control" ng-value="newRole" ng-model="clickedUser.role">{{clickedUser.role}}</option>
+        <option ng-repeat="role in roleDetails3">{{role.rolename}}</option> 
+</select> -->
+                            <select ng-model="clickedUser.role">
+                                <option value="ordinary">Ordinary</option>
+                                <option value="super">Super User</option>
+                                <option value="admin">Admin</option>
+                                <!-- <option value="" selected></option> -->
+                                <!-- <option ng-if="clickedUser.role =='ordinary'" ng-repeat="role in roleDetails1">{{role.rolename}}</option> 
+    <option ng-if="clickedUser.role =='investor'" ng-repeat="role in roleDetails2">{{role.rolename}}</option> 
+    <option ng-if="clickedUser.role =='admin'" ng-repeat="role in roleDetails3">{{role.rolename}}</option>  -->
+                            </select>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn btn-info" data-dismiss="modal"
+                        ng-click="updateUser()">Save</button>
+                    <button type="button" class="btn btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalDelete" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Are you sure?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+
+                    <p>You want to delete <strong style="color: red;">{{clickedUser.username}}'s</strong> information...
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        ng-click="deleteUser()">Yes</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit User</h4>
+                <button type="button" ng-click="close()">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="">Username</label>
+                    <div class="">
+                        <input type="text" class="form-control" ng-value="newUsername" ng-model="clickedUser.username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="">Email</label>
+                    <div class="0">
+                        <input type="text" class="form-control" ng-value="newEmail" ng-model="clickedUser.email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="">Role</label>
+                    <div class="">
+                        <select ng-model="clickedUser.role">
+                            <option value="ordinary">Ordinary</option>
+                            <option value="super">Super User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn btn-info" data-dismiss="modal"
+                    ng-click="updateUser()">Save</button>
+                <button type="button" class="btn btn btn-danger" ng-click="close()">Cancel</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="myModal2" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Are you sure?</h4>
+                <button type="button" ng-click="close2()">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+                <p>You want to delete <strong style="color: red;">{{clickedUser.username}}'s</strong> information...</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" ng-click="deleteUser()">Yes</button>
+                <button type="button" class="btn btn-info" ng-click="close2()">No</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="RNViewer" class="modal" role="dialog">
+        <div class="modal-dialog" style="margin: 0;">
+            <div class="modal-content">
+                <div class="pdf-viewer-header">
+                    <h5 class="modal-title">{{filename}}</h5>
+                    <!-- <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button> -->
+                    <div>
+                        <!-- <button type="button" class="btn btn-primary" style="padding: 4px 8px; margin-right: 4px;" ng-click="printPdf()">Print <i
+                            class="fa fa-print"></i></button> -->
+                        <button type="button" class="btn btn-danger" style="padding: 3px 8px;"
+                            ng-click="closeModal()">Close <i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <div id="iframeContainer" class="pdf-viewer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

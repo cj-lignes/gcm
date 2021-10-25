@@ -1,0 +1,2520 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GCM | Landing Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <script src="./assets/libraries/plugins/jquery/jquery.min.js"></script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/libraries/Bootstrap/bootstrap.css"> -->
+    <link rel="icon" href="./assets/libraries/dist/img/gcm2.png" sizes="16x16">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./assets/libraries/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="./assets/libraries/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="./assets/libraries/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyC9M7S6_djEMqQInwcvWkirzgfvR-X4r6E",
+            authDomain: "gcm-project-ddc1a.firebaseapp.com",
+            databaseURL: "https://gcm-project-ddc1a-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "gcm-project-ddc1a",
+            storageBucket: "gcm-project-ddc1a.appspot.com",
+            messagingSenderId: "575913287449",
+            appId: "1:575913287449:web:eeb4f460cf2732e38baf88",
+            measurementId: "G-W62XS8B8L8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+
+            <div class="col-sm-6">
+                <h2 class="m-0 text-dark">GCM Monitoring System</h2>
+            </div>
+
+            <!-- <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul> -->
+
+            <!-- SEARCH FORM -->
+            <!-- <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-navbar" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form> -->
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <form class="form-inline ml-3">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <ul class="navbar-nav">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li> -->
+                    <!-- <li class="nav-item d-none d-sm-inline-block">
+                        <a href="#/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li> -->
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="#/" class="nav-link" onclick="toLogin()">Login</a>
+                    </li>
+                </ul>
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#/" role="button"><i
+                            class="fas fa-th-large"></i></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="fas fa-sliders-h"></i>
+
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header"><i class="far fa-question-circle fa-2x"></i></span>
+
+
+                        <div class="dropdown-divider"></div>
+                        <a href="#/profile" class="dropdown-item">
+                            <i class="fas fa-users"></i> Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#/" class="dropdown-item" onclick="signout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+
+                        </a>
+
+                    </div>
+                </li> -->
+            </ul>
+        </nav>
+
+
+
+        <div class="">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-4">
+                            <!-- <h3 class="m-0 text-dark">Athletes In Action</h3> -->
+                            <label for="mYear">Ministry Year</label>
+                            <select class="custom-select form-control" id="mYear" onchange="mYear()">
+                                <!-- <option value="2016">2016-2017</option>
+                                <option value="2017">2017-2018</option>
+                                <option value="2018">2018-2019</option>
+                                <option value="2019">2019-2020</option>
+                                <option value="2020">2020-2021</option> -->
+                                <option value="Select" selected="selected">Select</option>
+                                <option value="2021">2021-2022</option>
+                                <option value="2022">2022-2023</option>
+                                <option value="2023">2023-2024</option>
+                                <option value="2024">2024-2025</option>
+                                <option value="2025">2025-2026</option>
+                            </select>
+                        </div>
+                        <!-- <div class="col-sm-6">
+                            <h3 class="m-0 text-dark">Current Lead Needed (Over-all)</h3>
+                        </div> -->
+                        <!-- /.col -->
+                        <div class="col-sm-8">
+                            <ol class="breadcrumb float-sm-right">
+                                <!-- <li class="breadcrumb-item"><a href="">Home</a></li> -->
+                                <li class="breadcrumb-item active">Landing Page</li>
+                            </ol>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Current Lead Needed</h4>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-4 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3 id="evan_num">---</h3>
+
+                                    <p>Evangelism</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-ios-people"></i>
+                                </div>
+                                <!-- <a href="#/" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a> -->
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-4 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3 id="sfu_num">---<sub style="font-size: 20px"></sub></h3>
+
+                                    <p>Started FU</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-ios-flame"></i>
+                                </div>
+                                <!-- <a href="#/" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a> -->
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-4 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3 id="st_num">---</h3>
+
+                                    <p>Started Training</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-ios-lightbulb"></i>
+                                </div>
+                                <!-- <a href="#/" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a> -->
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Current Lag Needed (Over-all)</h4>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-6 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-gradient-primary">
+                                <div class="inner">
+                                    <h3 id="cmd_num">---</h3>
+
+                                    <p>CMDs</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-ios-person"></i>
+                                </div>
+                                <!-- <a href="#/" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a> -->
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-6 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-gradient-secondary">
+                                <div class="inner">
+                                    <h3 id="churches_num">---<sup style="font-size: 20px"></sup></h3>
+
+                                    <p>Churches</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-ios-home"></i>
+                                </div>
+                                <!-- <a href="#/" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a> -->
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                    </div>
+
+
+                    <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Total Budget</h4>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12 col-12">
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3 id="budget_num">---</h3>
+
+                                    <p>Budget</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-card"></i>
+                                </div>
+                                <!-- <a href="#/" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div class="row">
+                        <div class="col-lg-6 col-6">
+                            <!-- BAR CHART -->
+                            <div class="card card-info">
+                                <div class="card-header">
+                                    <h4 class="card-title">Over-all Lead Chart</h4>
+
+                                    <!-- <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                        class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                        class="fas fa-times"></i></button>
+                            </div> -->
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart">
+                                        <canvas id="barChart"
+                                            style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-6 col-6">
+                            <!-- BAR CHART -->
+                            <div class="card card-info">
+                                <div class="card-header">
+                                    <h4 class="card-title">Over-all Lag Chart</h4>
+
+                                    <!-- <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                        class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                        class="fas fa-times"></i></button>
+                            </div> -->
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart">
+                                        <canvas id="barChart2"
+                                            style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- ./col -->
+                    </div>
+                    <br>
+
+                    <!-- <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Current Lead and Lag Needed (Per Team)</h4>
+                    </div>
+                    <br> -->
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Current Lead and Lag Needed (Per Team)</h3>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th style="text-align:center;">Team</th>
+                                            <th style="text-align:center;">Evangelism</th>
+                                            <th style="text-align:center;">Started FU</th>
+                                            <th style="text-align:center;">Started Training</th>
+                                            <th style="text-align:center;">CMDs</th>
+                                            <th style="text-align:center;">Churches Planted</th>
+                                            <!-- <th style="text-align:center;">Budget</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>Athletes In Action</td>
+                                            <td style="text-align:center;" id="tableAIAeva">---</td>
+                                            <td style="text-align:center;" id="tableAIAsfu">---</td>
+                                            <td style="text-align:center;" id="tableAIAst">---</td>
+                                            <td style="text-align:center;" id="tableAIAcmd">---</td>
+                                            <td style="text-align:center;" id="tableAIAchurches">---</td>
+                                            <!-- <td style="text-align:center;" id="tableAIAbudget">---</td> -->
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>Global Aid Network</td>
+                                            <td style="text-align:center;" id="tableGANeva">---</td>
+                                            <td style="text-align:center;" id="tableGANsfu">---</td>
+                                            <td style="text-align:center;" id="tableGANst">---</td>
+                                            <td style="text-align:center;" id="tableGANcmd">---</td>
+                                            <td style="text-align:center;" id="tableGANchurches">---</td>
+                                            <!-- <td style="text-align:center;" id="tableGANbudget">---</td> -->
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>Story Runners</td>
+                                            <td style="text-align:center;" id="tableSReva">---</td>
+                                            <td style="text-align:center;" id="tableSRsfu">---</td>
+                                            <td style="text-align:center;" id="tableSRst">---</td>
+                                            <td style="text-align:center;" id="tableSRcmd">---</td>
+                                            <td style="text-align:center;" id="tableSRchurches">---</td>
+                                            <!-- <td style="text-align:center;" id="tableSRbudget">---</td> -->
+                                        </tr>
+                                        <tr>
+                                            <td>4.</td>
+                                            <td>Jesus Films</td>
+                                            <td style="text-align:center;" id="tableJFeva">---</td>
+                                            <td style="text-align:center;" id="tableJFsfu">---</td>
+                                            <td style="text-align:center;" id="tableJFst">---</td>
+                                            <td style="text-align:center;" id="tableJFcmd">---</td>
+                                            <td style="text-align:center;" id="tableJFchurches">---</td>
+                                            <!-- <td style="text-align:center;" id="tableJFbudget">---</td> -->
+                                        </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td>GCM Manila</td>
+                                            <td style="text-align:center;" id="tableGCMMeva">---</td>
+                                            <td style="text-align:center;" id="tableGCMMsfu">---</td>
+                                            <td style="text-align:center;" id="tableGCMMst">---</td>
+                                            <td style="text-align:center;" id="tableGCMMcmd">---</td>
+                                            <td style="text-align:center;" id="tableGCMMchurches">---</td>
+                                            <!-- <td style="text-align:center;" id="tableGCMMbudget">---</td> -->
+                                        </tr>
+                                        <tr>
+                                            <td>6.</td>
+                                            <td>R8 (Special Project)</td>
+                                            <td style="text-align:center;" id="tableR8eva">---</td>
+                                            <td style="text-align:center;" id="tableR8sfu">---</td>
+                                            <td style="text-align:center;" id="tableR8st">---</td>
+                                            <td style="text-align:center;" id="tableR8cmd">---</td>
+                                            <td style="text-align:center;" id="tableR8churches">---</td>
+                                            <!-- <td style="text-align:center;" id="tableR8budget">---</td> -->
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="text-align:center;">Total</td>
+                                            <td style="text-align:center;" id="tableTOTALeva">---</td>
+                                            <td style="text-align:center;" id="tableTOTALsfu">---</td>
+                                            <td style="text-align:center;" id="tableTOTALst">---</td>
+                                            <td style="text-align:center;" id="tableTOTALcmd">---</td>
+                                            <td style="text-align:center;" id="tableTOTALchurches">---</td>
+                                            <!-- <td style="text-align:center;" id="tableTOTALbudget">---</td> -->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-sm-6">
+                        <h3 class="m-0 text-dark">Current Lead and Lag Needed (Per Team)</h3>
+                    </div>
+
+                    <br> -->
+
+                    <!-- <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header border-0">
+                                    <div class="row mb-2">
+                                        <div class="col-sm-6">
+                                            <h4 class="m-0 text-dark">Athletes in Action</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i
+                                                        class="fas fa-users"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Evangelism</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-info elevation-1"><i
+                                                        class="fas fa-fire"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started FU</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix hidden-md-up"></div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-warning elevation-1"><i
+                                                        class="fas fa-lightbulb"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started Training</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-gradient-primary elevation-1"><i
+                                                        class="fas fa-user"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">CMDs</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-gradient-secondary elevation-1"><i
+                                                        class="fas fa-church"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Churches Planted</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i
+                                                        class="fas fa-money-check-alt"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Budget</span>
+                                                    <span class="info-box-number">0</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header border-0">
+                                    <div class="row mb-2">
+                                        <div class="col-sm-6">
+                                            <h4 class="m-0 text-dark">Global Aid Network</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i
+                                                        class="fas fa-users"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Evangelism</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-info elevation-1"><i
+                                                        class="fas fa-fire"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started FU</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix hidden-md-up"></div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-warning elevation-1"><i
+                                                        class="fas fa-lightbulb"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started Training</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-gradient-primary elevation-1"><i
+                                                        class="fas fa-user"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">CMDs</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-gradient-secondary elevation-1"><i
+                                                        class="fas fa-church"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Churches Planted</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i
+                                                        class="fas fa-money-check-alt"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Budget</span>
+                                                    <span class="info-box-number">₱1,080,000.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <!-- <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header border-0">
+                                    <div class="row mb-2">
+                                        <div class="col-sm-6">
+                                            <h4 class="m-0 text-dark">Story Runners</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i
+                                                        class="fas fa-users"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Evangelism</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-info elevation-1"><i
+                                                        class="fas fa-fire"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started FU</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix hidden-md-up"></div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-warning elevation-1"><i
+                                                        class="fas fa-lightbulb"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started Training</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-gradient-primary elevation-1"><i
+                                                        class="fas fa-user"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">CMDs</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-gradient-secondary elevation-1"><i
+                                                        class="fas fa-church"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Churches Planted</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i
+                                                        class="fas fa-money-check-alt"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Budget</span>
+                                                    <span class="info-box-number">₱57,000.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header border-0">
+                                    <div class="row mb-2">
+                                        <div class="col-sm-6">
+                                            <h4 class="m-0 text-dark">Jesus Films</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i
+                                                        class="fas fa-users"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Evangelism</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-info elevation-1"><i
+                                                        class="fas fa-fire"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started FU</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix hidden-md-up"></div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-warning elevation-1"><i
+                                                        class="fas fa-lightbulb"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started Training</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-gradient-primary elevation-1"><i
+                                                        class="fas fa-user"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">CMDs</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-gradient-secondary elevation-1"><i
+                                                        class="fas fa-church"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Churches Planted</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i
+                                                        class="fas fa-money-check-alt"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Budget</span>
+                                                    <span class="info-box-number">₱4,399,000.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <!-- <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header border-0">
+                                    <div class="row mb-2">
+                                        <div class="col-sm-6">
+                                            <h4 class="m-0 text-dark">GCM Manila</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i
+                                                        class="fas fa-users"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Evangelism</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-info elevation-1"><i
+                                                        class="fas fa-fire"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started FU</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix hidden-md-up"></div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-warning elevation-1"><i
+                                                        class="fas fa-lightbulb"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started Training</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-gradient-primary elevation-1"><i
+                                                        class="fas fa-user"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">CMDs</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-gradient-secondary elevation-1"><i
+                                                        class="fas fa-church"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Churches Planted</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i
+                                                        class="fas fa-money-check-alt"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Budget</span>
+                                                    <span class="info-box-number">₱1,132,000.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header border-0">
+                                    <div class="row mb-2">
+                                        <div class="col-sm-6">
+                                            <h4 class="m-0 text-dark">R8 (Special Project)</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-success elevation-1"><i
+                                                        class="fas fa-users"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Evangelism</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-info elevation-1"><i
+                                                        class="fas fa-fire"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started FU</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix hidden-md-up"></div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-warning elevation-1"><i
+                                                        class="fas fa-lightbulb"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Started Training</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box">
+                                                <span class="info-box-icon bg-gradient-primary elevation-1"><i
+                                                        class="fas fa-user"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">CMDs</span>
+                                                    <span class="info-box-number">
+                                                        ---
+                                                        <small></small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-gradient-secondary elevation-1"><i
+                                                        class="fas fa-church"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Churches Planted</span>
+                                                    <span class="info-box-number">---</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-8 col-md-4">
+                                            <div class="info-box mb-3">
+                                                <span class="info-box-icon bg-danger elevation-1"><i
+                                                        class="fas fa-money-check-alt"></i></span>
+
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Budget</span>
+                                                    <span class="info-box-number">₱1,368,000.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+
+
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <!-- <div class="content-wrapper">
+            <div class="row-fluid" ng-view></div>
+        </div> -->
+        <!-- /.content-wrapper -->
+
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+            <div class="p-3">
+                <h5>Title</h5>
+                <p>Sidebar content</p>
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+
+
+        <!-- <img style="float: center;" class="" src="https://static1.freebitco.in/banners/468x60-3.png"
+            alt="custom_html_banner2" style="width:75%"><a href="https://freebitco.in/?r=7161649">test</a> -->
+
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- <a href="https://ref.adbtc.top/956082" target="_blank" border="0" style="  display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;"><img src="https://adbtc.top/promo/banner_468x60.jpg" /></a><br>
+            <a href="https://freebitco.in/?r=7161649" style="  display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;" target="_blank">
+                <img src="https://static1.freebitco.in/banners/468x60-3.png" />
+            </a> -->
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+                Lets take the next step together!
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2021 <a
+                    href="https://globalchurchmovements.org/">globalchurchmovements.org</a>.</strong>
+            All rights reserved.
+        </footer>
+    </div>
+
+
+    <!-- <script src="../../plugins/chart.js/Chart.min.js"></script> -->
+    <!-- <script src="../../plugins/jquery/jquery.min.js"></script> -->
+
+    <script src="./assets/libraries/plugins/jquery/jquery.min.js"></script>
+    <script src="./assets/libraries/plugins/chart.js/Chart.min.js"></script>
+
+
+
+    <script>
+        function toLogin() {
+            // console.log(window.location.href);
+            // window.location.href = 'http://127.0.0.1:5500/public/login.html';
+            window.location.href = 'https://gcm-project-ddc1a.web.app/login.html';
+        }
+
+        function mYear() {
+            // var payment = document.getElementById("payment");
+            var mYear = $('#mYear').val();
+            // if (mYear == "2016") {
+            //     console.log("2016-2017");
+            //     $('span.info-box-number').eq(0).html("---");
+            //     $('span.info-box-number').eq(1).html("---");
+            //     $('span.info-box-number').eq(2).html("---");
+            //     $('span.info-box-number').eq(3).html("---");
+            //     $('span.info-box-number').eq(4).html("---");
+            //     $('span.info-box-number').eq(5).html("---");
+            // } else if (mYear == "2017") {
+            //     console.log("2017-2018");
+            //     $('span.info-box-number').eq(0).html("---");
+            //     $('span.info-box-number').eq(1).html("---");
+            //     $('span.info-box-number').eq(2).html("---");
+            //     $('span.info-box-number').eq(3).html("---");
+            //     $('span.info-box-number').eq(4).html("---");
+            //     $('span.info-box-number').eq(5).html("---");
+            // } else if (mYear == "2018") {
+            //     console.log("2018-2019");
+            //     $('span.info-box-number').eq(0).html("---");
+            //     $('span.info-box-number').eq(1).html("---");
+            //     $('span.info-box-number').eq(2).html("---");
+            //     $('span.info-box-number').eq(3).html("---");
+            //     $('span.info-box-number').eq(4).html("---");
+            //     $('span.info-box-number').eq(5).html("---");
+            // } else if (mYear == "2019") {
+            //     console.log("2019-2020");
+            //     $('span.info-box-number').eq(0).html("---");
+            //     $('span.info-box-number').eq(1).html("---");
+            //     $('span.info-box-number').eq(2).html("---");
+            //     $('span.info-box-number').eq(3).html("---");
+            //     $('span.info-box-number').eq(4).html("---");
+            //     $('span.info-box-number').eq(5).html("---");
+            // } else if (mYear == "2020") {
+            //     console.log("2020-2021");
+            //     $('span.info-box-number').eq(0).html("---");
+            //     $('span.info-box-number').eq(1).html("---");
+            //     $('span.info-box-number').eq(2).html("---");
+            //     $('span.info-box-number').eq(3).html("---");
+            //     $('span.info-box-number').eq(4).html("---");
+            //     $('span.info-box-number').eq(5).html("---");
+            // } else 
+            if (mYear == "2021") {
+                var year = mYear + "to" + (1 + (mYear * 1));
+                console.log("2021-2022");
+                var ref2021 = firebase.database().ref(year);
+                var refaia = firebase.database().ref("aia" + mYear);
+                var refgan = firebase.database().ref("gan" + mYear);
+                var refsr = firebase.database().ref("sr" + mYear);
+                var refjf = firebase.database().ref("jf" + mYear);
+                var refgcmm = firebase.database().ref("gcmm" + mYear);
+                var refr8 = firebase.database().ref("r8" + mYear);
+
+                console.log(year);
+
+
+                ref2021.on("value", (snapshot3) => {
+                    // do some stuff once
+                    console.log(snapshot3.val());
+                    var goalevan = 0,
+                        goalsfu = 0,
+                        goalst = 0,
+                        goalcmd = 0,
+                        goalchurches = 0,
+                        goalbudget = 0;
+                    var AIAevan = 0,
+                        AIAsfu = 0,
+                        AIAst = 0,
+                        AIAcmd = 0,
+                        AIAchurches = 0;
+                    var GANevan = 0,
+                        GANsfu = 0,
+                        GANst = 0,
+                        GANcmd = 0,
+                        GANchurches = 0;
+                    var SRevan = 0,
+                        SRsfu = 0,
+                        SRst = 0,
+                        SRcmd = 0,
+                        SRchurches = 0;
+                    var JFevan = 0,
+                        JFsfu = 0,
+                        JFst = 0,
+                        JFcmd = 0,
+                        JFchurches = 0;
+                    var GCMMevan = 0,
+                        GCMMsfu = 0,
+                        GCMMst = 0,
+                        GCMMcmd = 0,
+                        GCMMchurches = 0;
+                    var R8evan = 0,
+                        R8sfu = 0,
+                        R8st = 0,
+                        R8cmd = 0,
+                        R8churches = 0;
+
+
+                    snapshot3.forEach((data) => {
+                        // console.log('The ' + data.key + ' Evangelism is ' + data.val().evangelism);
+                        goalevan = goalevan + (data.val().evangelism * 1);
+                        goalsfu = goalsfu + (data.val().sfu * 1);
+                        goalst = goalst + (data.val().st * 1);
+                        goalcmd = goalcmd + (data.val().cmd * 1);
+                        goalchurches = goalchurches + (data.val().churches * 1);
+                        goalbudget = goalbudget + (data.val().budget * 1);
+                        // console.log(evan);
+                        // console.log(evan);
+                        // console.log(evan);
+                        // console.log(evan);
+                        // console.log(evan);
+                    });
+                    refaia.on("value", (snapshot4) => {
+                        console.log(snapshot4.val());
+                        snapshot4.forEach((data) => {
+                            // console.log('The ' + data.key + ' Evangelism is ' + data.val().evangelism);
+                            AIAevan = AIAevan + (data.val().evangelism * 1);
+                            AIAsfu = AIAsfu + (data.val().sfu * 1);
+                            AIAst = AIAst + (data.val().st * 1);
+                            AIAcmd = AIAcmd + (data.val().cmd * 1);
+                            AIAchurches = AIAchurches + (data.val().churches * 1);
+                            // console.log(data);
+                            // console.log(AIAsfu);
+                            // console.log(AIAst);
+                            // console.log(AIAcmd);
+                            // console.log(AIAchurches);
+                        });
+                        refgan.on("value", (snapshot5) => {
+                            console.log(snapshot5.val());
+                            snapshot5.forEach((data) => {
+                                // console.log('The ' + data.key + ' Evangelism is ' + data.val().evangelism);
+                                GANevan = GANevan + (data.val().evangelism * 1);
+                                GANsfu = GANsfu + (data.val().sfu * 1);
+                                GANst = GANst + (data.val().st * 1);
+                                GANcmd = GANcmd + (data.val().cmd * 1);
+                                GANchurches = GANchurches + (data.val()
+                                    .churches * 1);
+                                // console.log(GANevan);
+                                // console.log(GANsfu);
+                                // console.log(GANst);
+                                // console.log(GANcmd);
+                                // console.log(GANchurches);
+                            });
+                            refsr.on("value", (snapshot6) => {
+                                console.log(snapshot6.val());
+                                snapshot6.forEach((data) => {
+                                    // console.log('The ' + data.key + ' Evangelism is ' + data.val().evangelism);
+                                    SRevan = SRevan + (data.val()
+                                        .evangelism * 1);
+                                    SRsfu = SRsfu + (data.val().sfu *
+                                        1);
+                                    SRst = SRst + (data.val().st * 1);
+                                    SRcmd = SRcmd + (data.val().cmd *
+                                        1);
+                                    SRchurches = SRchurches + (data
+                                        .val().churches * 1);
+                                    // console.log(SRevan);
+                                    // console.log(SRsfu);
+                                    // console.log(SRst);
+                                    // console.log(SRcmd);
+                                    // console.log(SRchurches);
+                                });
+                                refjf.on("value", (snapshot7) => {
+                                    console.log(snapshot7.val());
+                                    snapshot7.forEach((data) => {
+                                        // console.log('The ' + data.key + ' Evangelism is ' + data.val().evangelism);
+                                        JFevan = JFevan + (data
+                                            .val()
+                                            .evangelism * 1);
+                                        JFsfu = JFsfu + (data
+                                            .val().sfu * 1);
+                                        JFst = JFst + (data
+                                            .val().st * 1);
+                                        JFcmd = JFcmd + (data
+                                            .val().cmd * 1);
+                                        JFchurches =
+                                            JFchurches + (data
+                                                .val()
+                                                .churches * 1);
+                                        // console.log(JFevan);
+                                        // console.log(JFsfu);
+                                        // console.log(JFst);
+                                        // console.log(JFcmd);
+                                        // console.log(JFchurches);
+                                    });
+                                    refgcmm.on("value", (snapshot8) => {
+                                        console.log(snapshot8
+                                            .val());
+                                        snapshot8.forEach((
+                                            data) => {
+                                            // console.log('The ' + data.key + ' Evangelism is ' + data.val().evangelism);
+                                            GCMMevan =
+                                                GCMMevan +
+                                                (data
+                                                    .val()
+                                                    .evangelism *
+                                                    1);
+                                            GCMMsfu =
+                                                GCMMsfu +
+                                                (data
+                                                    .val()
+                                                    .sfu *
+                                                    1);
+                                            GCMMst =
+                                                GCMMst +
+                                                (data
+                                                    .val()
+                                                    .st *
+                                                    1);
+                                            GCMMcmd =
+                                                GCMMcmd +
+                                                (data
+                                                    .val()
+                                                    .cmd *
+                                                    1);
+                                            GCMMchurches
+                                                =
+                                                GCMMchurches +
+                                                (data
+                                                    .val()
+                                                    .churches *
+                                                    1);
+                                            // console.log(GCMMevan);
+                                            // console.log(GCMMsfu);
+                                            // console.log(GCMMst);
+                                            // console.log(GCMMcmd);
+                                            // console.log(GCMMchurches);
+                                        });
+                                        refr8.on("value", (
+                                            snapshot9
+                                        ) => {
+                                            console.log(
+                                                snapshot9
+                                                .val()
+                                            );
+                                            snapshot9
+                                                .forEach(
+                                                    (
+                                                        data
+                                                    ) => {
+                                                        // console.log('The ' + data.key + ' Evangelism is ' + data.val().evangelism);
+                                                        R8evan
+                                                            =
+                                                            R8evan +
+                                                            (data
+                                                                .val()
+                                                                .evangelism *
+                                                                1
+                                                            );
+                                                        R8sfu
+                                                            =
+                                                            R8sfu +
+                                                            (data
+                                                                .val()
+                                                                .sfu *
+                                                                1
+                                                            );
+                                                        R8st =
+                                                            R8st +
+                                                            (data
+                                                                .val()
+                                                                .st *
+                                                                1
+                                                            );
+                                                        R8cmd
+                                                            =
+                                                            R8cmd +
+                                                            (data
+                                                                .val()
+                                                                .cmd *
+                                                                1
+                                                            );
+                                                        R8churches
+                                                            =
+                                                            R8churches +
+                                                            (data
+                                                                .val()
+                                                                .churches *
+                                                                1
+                                                            );
+                                                        // console.log(R8evan);
+                                                        // console.log(R8sfu);
+                                                        // console.log(R8st);
+                                                        // console.log(R8cmd);
+                                                        // console.log(R8churches);
+                                                        // $scope.evanGoal = goalevan;
+                                                        // $scope.evanCurrent = goalevan - (AIAevan + GANevan + SRevan + JFevan + GCMMevan + R8evan);
+                                                        // $scope.sfuGoal = goalsfu;
+                                                        // $scope.sfuCurrent = goalsfu - (AIAsfu + GANsfu + SRsfu + JFsfu + GCMMsfu + R8sfu);
+                                                        // $scope.stGoal = goalst;
+                                                        // $scope.stCurrent = goalst - (AIAst + GANst + SRst + JFst + GCMMst + R8st);
+                                                        // $scope.cmdGoal = goalcmd;
+                                                        // $scope.cmdCurrent = goalcmd - (AIAcmd + GANcmd + SRcmd + JFcmd + GCMMcmd + R8cmd);
+                                                        // $scope.churchesGoal = goalchurches;
+                                                        // $scope.churchesCurrent = goalchurches - (AIAchurches + GANchurches + SRchurches + JFchurches + GCMMchurches + R8churches);
+
+                                                        $("#evan_num")
+                                                            .html(
+                                                                goalevan -
+                                                                (AIAevan +
+                                                                    GANevan +
+                                                                    SRevan +
+                                                                    JFevan +
+                                                                    GCMMevan +
+                                                                    R8evan
+                                                                )
+                                                            );
+                                                        $("#sfu_num")
+                                                            .html(
+                                                                goalsfu -
+                                                                (AIAsfu +
+                                                                    GANsfu +
+                                                                    SRsfu +
+                                                                    JFsfu +
+                                                                    GCMMsfu +
+                                                                    R8sfu
+                                                                )
+                                                            );
+                                                        $("#st_num")
+                                                            .html(
+                                                                goalst -
+                                                                (AIAst +
+                                                                    GANst +
+                                                                    SRst +
+                                                                    JFst +
+                                                                    GCMMst +
+                                                                    R8st
+                                                                )
+                                                            );
+                                                        $("#cmd_num")
+                                                            .html(
+                                                                goalcmd -
+                                                                (AIAcmd +
+                                                                    GANcmd +
+                                                                    SRcmd +
+                                                                    JFcmd +
+                                                                    GCMMcmd +
+                                                                    R8cmd
+                                                                )
+                                                            );
+                                                        $("#churches_num")
+                                                            .html(
+                                                                goalchurches -
+                                                                (AIAchurches +
+                                                                    GANchurches +
+                                                                    SRchurches +
+                                                                    JFchurches +
+                                                                    GCMMchurches +
+                                                                    R8churches
+                                                                )
+                                                            );
+                                                        $("#budget_num")
+                                                            .html(
+                                                                "₱" +
+                                                                goalbudget
+                                                            );
+
+
+
+                                                        $(function () {
+                                                            /* ChartJS
+                                                             * -------
+                                                             * Here we will create a few charts using ChartJS
+                                                             */
+
+                                                            var areaChartData = {
+                                                                labels: [
+                                                                    'Evangelism',
+                                                                    'Started FU',
+                                                                    'Started Training'
+                                                                ],
+                                                                datasets: [{
+                                                                        label: 'Goal',
+                                                                        backgroundColor: 'rgba(60,141,188,0.9)',
+                                                                        borderColor: 'rgba(60,141,188,0.8)',
+                                                                        pointRadius: false,
+                                                                        pointColor: '#3b8bba',
+                                                                        pointStrokeColor: 'rgba(60,141,188,1)',
+                                                                        pointHighlightFill: '#fff',
+                                                                        pointHighlightStroke: 'rgba(60,141,188,1)',
+                                                                        data: [goalevan,
+                                                                            goalsfu,
+                                                                            goalst
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        label: 'Current',
+                                                                        backgroundColor: 'rgba(210, 214, 222, 1)',
+                                                                        borderColor: 'rgba(210, 214, 222, 1)',
+                                                                        pointRadius: false,
+                                                                        pointColor: 'rgba(210, 214, 222, 1)',
+                                                                        pointStrokeColor: '#c1c7d1',
+                                                                        pointHighlightFill: '#fff',
+                                                                        pointHighlightStroke: 'rgba(220,220,220,1)',
+                                                                        data: [(AIAevan +
+                                                                                GANevan +
+                                                                                SRevan +
+                                                                                JFevan +
+                                                                                GCMMevan +
+                                                                                R8evan
+                                                                            ),
+                                                                            (AIAsfu +
+                                                                                GANsfu +
+                                                                                SRsfu +
+                                                                                JFsfu +
+                                                                                GCMMsfu +
+                                                                                R8sfu
+                                                                            ),
+                                                                            (AIAst +
+                                                                                GANst +
+                                                                                SRst +
+                                                                                JFst +
+                                                                                GCMMst +
+                                                                                R8st
+                                                                            )
+                                                                        ]
+                                                                    },
+                                                                ]
+                                                            }
+
+                                                            var areaChartData2 = {
+                                                                labels: [
+                                                                    'CMDs',
+                                                                    'Churches Planted'
+                                                                ],
+                                                                datasets: [{
+                                                                        label: 'Goal',
+                                                                        backgroundColor: 'rgba(60,141,188,0.9)',
+                                                                        borderColor: 'rgba(60,141,188,0.8)',
+                                                                        pointRadius: false,
+                                                                        pointColor: '#3b8bba',
+                                                                        pointStrokeColor: 'rgba(60,141,188,1)',
+                                                                        pointHighlightFill: '#fff',
+                                                                        pointHighlightStroke: 'rgba(60,141,188,1)',
+                                                                        data: [goalcmd,
+                                                                            goalchurches
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        label: 'Current',
+                                                                        backgroundColor: 'rgba(210, 214, 222, 1)',
+                                                                        borderColor: 'rgba(210, 214, 222, 1)',
+                                                                        pointRadius: false,
+                                                                        pointColor: 'rgba(210, 214, 222, 1)',
+                                                                        pointStrokeColor: '#c1c7d1',
+                                                                        pointHighlightFill: '#fff',
+                                                                        pointHighlightStroke: 'rgba(220,220,220,1)',
+                                                                        data: [(AIAcmd +
+                                                                                GANcmd +
+                                                                                SRcmd +
+                                                                                JFcmd +
+                                                                                GCMMcmd +
+                                                                                R8cmd
+                                                                            ),
+                                                                            (AIAchurches +
+                                                                                GANchurches +
+                                                                                SRchurches +
+                                                                                JFchurches +
+                                                                                GCMMchurches +
+                                                                                R8churches
+                                                                            )
+                                                                        ]
+                                                                    },
+                                                                ]
+                                                            }
+
+                                                            //-------------
+                                                            //- BAR CHART -
+                                                            //-------------
+                                                            var barChartCanvas =
+                                                                $(
+                                                                    '#barChart'
+                                                                )
+                                                                .get(
+                                                                    0
+                                                                )
+                                                                .getContext(
+                                                                    '2d'
+                                                                )
+                                                            var barChartData =
+                                                                jQuery
+                                                                .extend(
+                                                                    true, {},
+                                                                    areaChartData
+                                                                )
+                                                            // areaChartData.datasets[0].data[0] = 200000;
+                                                            // areaChartData.datasets[1].data[0] = 100000;
+                                                            var temp0 =
+                                                                areaChartData
+                                                                .datasets[
+                                                                    0
+                                                                ]
+                                                            var temp1 =
+                                                                areaChartData
+                                                                .datasets[
+                                                                    1
+                                                                ]
+                                                            barChartData
+                                                                .datasets[
+                                                                    0
+                                                                ] =
+                                                                temp1
+                                                            barChartData
+                                                                .datasets[
+                                                                    1
+                                                                ] =
+                                                                temp0
+                                                            // console.log(temp0.data[0]);
+                                                            // console.log(temp1.data[0]);
+
+                                                            var barChartOptions = {
+                                                                responsive: true,
+                                                                maintainAspectRatio: false,
+                                                                datasetFill: false
+                                                            }
+
+                                                            var barChart =
+                                                                new Chart(
+                                                                    barChartCanvas, {
+                                                                        type: 'bar',
+                                                                        data: barChartData,
+                                                                        options: barChartOptions
+                                                                    }
+                                                                )
+
+
+
+                                                            //-------------
+                                                            //- BAR CHART2 -
+                                                            //-------------
+                                                            var barChartCanvas2 =
+                                                                $(
+                                                                    '#barChart2'
+                                                                )
+                                                                .get(
+                                                                    0
+                                                                )
+                                                                .getContext(
+                                                                    '2d'
+                                                                )
+                                                            var barChartData2 =
+                                                                jQuery
+                                                                .extend(
+                                                                    true, {},
+                                                                    areaChartData2
+                                                                )
+                                                            // areaChartData.datasets[0].data[0] = 200000;
+                                                            // areaChartData.datasets[1].data[0] = 100000;
+                                                            var temp2 =
+                                                                areaChartData2
+                                                                .datasets[
+                                                                    1
+                                                                ]
+                                                            var temp3 =
+                                                                areaChartData2
+                                                                .datasets[
+                                                                    0
+                                                                ]
+                                                            barChartData2
+                                                                .datasets[
+                                                                    0
+                                                                ] =
+                                                                temp2
+                                                            barChartData2
+                                                                .datasets[
+                                                                    1
+                                                                ] =
+                                                                temp3
+                                                            // console.log(temp0.data[0]);
+                                                            // console.log(temp1.data[0]);
+
+                                                            var barChartOptions2 = {
+                                                                responsive: true,
+                                                                maintainAspectRatio: false,
+                                                                datasetFill: false
+                                                            }
+
+                                                            var barChart2 =
+                                                                new Chart(
+                                                                    barChartCanvas2, {
+                                                                        type: 'bar',
+                                                                        data: barChartData2,
+                                                                        options: barChartOptions2
+                                                                    }
+                                                                )
+                                                        });
+
+                                                        ref2021
+                                                            .orderByChild(
+                                                                "team"
+                                                            )
+                                                            .equalTo(
+                                                                "aia"
+                                                            )
+                                                            .on("child_added",
+                                                                function (
+                                                                    snapshot
+                                                                ) {
+                                                                    var aiabudget =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .budget;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableAIAeva"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .evangelism -
+                                                                        AIAevan;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableAIAsfu"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .sfu -
+                                                                        AIAsfu;
+
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableAIAst"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .st -
+                                                                        AIAst;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableAIAcmd"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .cmd -
+                                                                        AIAcmd;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableAIAchurches"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .churches -
+                                                                        AIAchurches;
+                                                                    // document
+                                                                    //     .getElementById(
+                                                                    //         "tableAIAbudget"
+                                                                    //     )
+                                                                    //     .innerHTML =
+                                                                    //     snapshot
+                                                                    //     .val()
+                                                                    //     .budget;
+                                                                }
+                                                            );
+
+                                                        ref2021
+                                                            .orderByChild(
+                                                                "team"
+                                                            )
+                                                            .equalTo(
+                                                                "gan"
+                                                            )
+                                                            .on("child_added",
+                                                                function (
+                                                                    snapshot
+                                                                ) {
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGANeva"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .evangelism -
+                                                                        GANevan;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGANsfu"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .sfu -
+                                                                        GANsfu;
+
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGANst"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .st -
+                                                                        GANst;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGANcmd"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .cmd -
+                                                                        GANcmd;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGANchurches"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .churches -
+                                                                        GANchurches;
+                                                                    // document
+                                                                    //     .getElementById(
+                                                                    //         "tableGANbudget"
+                                                                    //     )
+                                                                    //     .innerHTML =
+                                                                    //     snapshot
+                                                                    //     .val()
+                                                                    //     .budget;
+                                                                }
+                                                            );
+
+                                                        ref2021
+                                                            .orderByChild(
+                                                                "team"
+                                                            )
+                                                            .equalTo(
+                                                                "sr"
+                                                            )
+                                                            .on("child_added",
+                                                                function (
+                                                                    snapshot
+                                                                ) {
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableSReva"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .evangelism -
+                                                                        SRevan;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableSRsfu"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .sfu -
+                                                                        SRsfu;
+
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableSRst"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .st -
+                                                                        SRst;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableSRcmd"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .cmd -
+                                                                        SRcmd;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableSRchurches"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .churches -
+                                                                        SRchurches;
+                                                                    // document
+                                                                    //     .getElementById(
+                                                                    //         "tableSRbudget"
+                                                                    //     )
+                                                                    //     .innerHTML =
+                                                                    //     snapshot
+                                                                    //     .val()
+                                                                    //     .budget;
+                                                                }
+                                                            );
+
+
+                                                        ref2021
+                                                            .orderByChild(
+                                                                "team"
+                                                            )
+                                                            .equalTo(
+                                                                "jf"
+                                                            )
+                                                            .on("child_added",
+                                                                function (
+                                                                    snapshot
+                                                                ) {
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableJFeva"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .evangelism -
+                                                                        JFevan;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableJFsfu"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .sfu -
+                                                                        JFsfu;
+
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableJFst"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .st -
+                                                                        JFst;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableJFcmd"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .cmd -
+                                                                        JFcmd;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableJFchurches"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .churches -
+                                                                        JFchurches;
+                                                                    // document
+                                                                    //     .getElementById(
+                                                                    //         "tableJFbudget"
+                                                                    //     )
+                                                                    //     .innerHTML =
+                                                                    //     snapshot
+                                                                    //     .val()
+                                                                    //     .budget;
+                                                                }
+                                                            );
+
+                                                        ref2021
+                                                            .orderByChild(
+                                                                "team"
+                                                            )
+                                                            .equalTo(
+                                                                "gcmm"
+                                                            )
+                                                            .on("child_added",
+                                                                function (
+                                                                    snapshot
+                                                                ) {
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGCMMeva"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .evangelism -
+                                                                        GCMMevan;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGCMMsfu"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .sfu -
+                                                                        GCMMsfu;
+
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGCMMst"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .st -
+                                                                        GCMMst;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGCMMcmd"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .cmd -
+                                                                        GCMMcmd;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableGCMMchurches"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .churches -
+                                                                        GCMMchurches;
+                                                                    // document
+                                                                    //     .getElementById(
+                                                                    //         "tableGCMMbudget"
+                                                                    //     )
+                                                                    //     .innerHTML =
+                                                                    //     snapshot
+                                                                    //     .val()
+                                                                    //     .budget;
+                                                                }
+                                                            );
+
+
+                                                        ref2021
+                                                            .orderByChild(
+                                                                "team"
+                                                            )
+                                                            .equalTo(
+                                                                "r8"
+                                                            )
+                                                            .on("child_added",
+                                                                function (
+                                                                    snapshot
+                                                                ) {
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableR8eva"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .evangelism -
+                                                                        R8evan;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableR8sfu"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .sfu -
+                                                                        R8sfu;
+
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableR8st"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .st -
+                                                                        R8st;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableR8cmd"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .cmd -
+                                                                        R8cmd;
+                                                                    document
+                                                                        .getElementById(
+                                                                            "tableR8churches"
+                                                                        )
+                                                                        .innerHTML =
+                                                                        snapshot
+                                                                        .val()
+                                                                        .churches -
+                                                                        R8churches;
+                                                                    // document
+                                                                    //     .getElementById(
+                                                                    //         "tableR8budget"
+                                                                    //     )
+                                                                    //     .innerHTML =
+                                                                    //     snapshot
+                                                                    //     .val()
+                                                                    //     .budget;
+                                                                }
+                                                            );
+
+                                                        document
+                                                            .getElementById(
+                                                                "tableTOTALeva"
+                                                            )
+                                                            .innerHTML =
+                                                            goalevan -
+                                                            (AIAevan +
+                                                                GANevan +
+                                                                SRevan +
+                                                                JFevan +
+                                                                GCMMevan +
+                                                                R8evan
+                                                            );
+                                                        document
+                                                            .getElementById(
+                                                                "tableTOTALsfu"
+                                                            )
+                                                            .innerHTML =
+                                                            goalsfu -
+                                                            (AIAsfu +
+                                                                GANsfu +
+                                                                SRsfu +
+                                                                JFsfu +
+                                                                GCMMsfu +
+                                                                R8sfu
+                                                            );
+                                                        document
+                                                            .getElementById(
+                                                                "tableTOTALst"
+                                                            )
+                                                            .innerHTML =
+                                                            goalst -
+                                                            (AIAst +
+                                                                GANst +
+                                                                SRst +
+                                                                JFst +
+                                                                GCMMst +
+                                                                R8st
+                                                            );
+                                                        document
+                                                            .getElementById(
+                                                                "tableTOTALcmd"
+                                                            )
+                                                            .innerHTML =
+                                                            goalcmd -
+                                                            (AIAcmd +
+                                                                GANcmd +
+                                                                SRcmd +
+                                                                JFcmd +
+                                                                GCMMcmd +
+                                                                R8cmd
+                                                            );
+                                                        document
+                                                            .getElementById(
+                                                                "tableTOTALchurches"
+                                                            )
+                                                            .innerHTML =
+                                                            goalchurches -
+                                                            (AIAchurches +
+                                                                GANchurches +
+                                                                SRchurches +
+                                                                JFchurches +
+                                                                GCMMchurches +
+                                                                R8churches
+                                                            );
+
+                                                        // document
+                                                        //     .getElementById(
+                                                        //         "tableTOTALbudget"
+                                                        //     )
+                                                        //     .innerHTML =
+                                                        //     goalbudget;
+                                                    });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+
+                    // console.log(arrAIA);
+                    // console.log(goalevan - AIAevan);
+                    // console.log(goalsfu - AIAsfu);
+                    // console.log(goalst - AIAst);
+                    // console.log(goalcmd - AIAcmd);
+                    // console.log(goalchurches - AIAchurches);
+                    // $("#evan_num").html(goalevan - evan);
+                    // $("#sfu_num").html(goalsfu - sfu);
+                    // $("#st_num").html(goalst - st);
+                    // $("#cmd_num").html(goalcmd - cmd);
+                    // $("#churches_num").html(goalchurches - churches);
+                    // $("#budget_num").html("₱" + goalbudget);
+                });
+            } else if (mYear == "2022") {
+                console.log("2022-2023");
+                $("#evan_num").html("---");
+                $("#sfu_num").html("---");
+                $("#st_num").html("---");
+                $("#cmd_num").html("---");
+                $("#churches_num").html("---");
+                // $("#budget_num").html("---");
+
+                document.getElementById("tableAIAeva").innerHTML = "---";
+                document.getElementById("tableAIAsfu").innerHTML = "---";
+                document.getElementById("tableAIAst").innerHTML = "---";
+                document.getElementById("tableAIAcmd").innerHTML = "---";
+                document.getElementById("tableAIAchurches").innerHTML = "---";
+                //document.getElementById("tableAIAbudget").innerHTML = "---";
+
+                document.getElementById("tableGANeva").innerHTML = "---";
+                document.getElementById("tableGANsfu").innerHTML = "---";
+                document.getElementById("tableGANst").innerHTML = "---";
+                document.getElementById("tableGANcmd").innerHTML = "---";
+                document.getElementById("tableGANchurches").innerHTML = "---";
+                //document.getElementById("tableGANbudget").innerHTML = "---";
+
+                document.getElementById("tableSReva").innerHTML = "---";
+                document.getElementById("tableSRsfu").innerHTML = "---";
+                document.getElementById("tableSRst").innerHTML = "---";
+                document.getElementById("tableSRcmd").innerHTML = "---";
+                document.getElementById("tableSRchurches").innerHTML = "---";
+                //document.getElementById("tableSRbudget").innerHTML = "---";
+
+                document.getElementById("tableJFeva").innerHTML = "---";
+                document.getElementById("tableJFsfu").innerHTML = "---";
+                document.getElementById("tableJFst").innerHTML = "---";
+                document.getElementById("tableJFcmd").innerHTML = "---";
+                document.getElementById("tableJFchurches").innerHTML = "---";
+                //document.getElementById("tableJFbudget").innerHTML = "---";
+
+                document.getElementById("tableGCMMeva").innerHTML = "---";
+                document.getElementById("tableGCMMsfu").innerHTML = "---";
+                document.getElementById("tableGCMMst").innerHTML = "---";
+                document.getElementById("tableGCMMcmd").innerHTML = "---";
+                document.getElementById("tableGCMMchurches").innerHTML = "---";
+                //document.getElementById("tableGCMMbudget").innerHTML = "---";
+
+                document.getElementById("tableR8eva").innerHTML = "---";
+                document.getElementById("tableR8sfu").innerHTML = "---";
+                document.getElementById("tableR8st").innerHTML = "---";
+                document.getElementById("tableR8cmd").innerHTML = "---";
+                document.getElementById("tableR8churches").innerHTML = "---";
+                //document.getElementById("tableR8budget").innerHTML = "---";
+
+                document.getElementById("tableTOTALeva").innerHTML = "---";
+                document.getElementById("tableTOTALsfu").innerHTML = "---";
+                document.getElementById("tableTOTALst").innerHTML = "---";
+                document.getElementById("tableTOTALcmd").innerHTML = "---";
+                document.getElementById("tableTOTALchurches").innerHTML = "---";
+                //document.getElementById("tableTOTALbudget").innerHTML = "---";
+            } else if (mYear == "2023") {
+                console.log("2023-2024");
+                $("#evan_num").html("---");
+                $("#sfu_num").html("---");
+                $("#st_num").html("---");
+                $("#cmd_num").html("---");
+                $("#churches_num").html("---");
+                // $("#budget_num").html("---");
+
+                document.getElementById("tableAIAeva").innerHTML = "---";
+                document.getElementById("tableAIAsfu").innerHTML = "---";
+                document.getElementById("tableAIAst").innerHTML = "---";
+                document.getElementById("tableAIAcmd").innerHTML = "---";
+                document.getElementById("tableAIAchurches").innerHTML = "---";
+                //document.getElementById("tableAIAbudget").innerHTML = "---";
+
+                document.getElementById("tableGANeva").innerHTML = "---";
+                document.getElementById("tableGANsfu").innerHTML = "---";
+                document.getElementById("tableGANst").innerHTML = "---";
+                document.getElementById("tableGANcmd").innerHTML = "---";
+                document.getElementById("tableGANchurches").innerHTML = "---";
+                //document.getElementById("tableGANbudget").innerHTML = "---";
+
+                document.getElementById("tableSReva").innerHTML = "---";
+                document.getElementById("tableSRsfu").innerHTML = "---";
+                document.getElementById("tableSRst").innerHTML = "---";
+                document.getElementById("tableSRcmd").innerHTML = "---";
+                document.getElementById("tableSRchurches").innerHTML = "---";
+                //document.getElementById("tableSRbudget").innerHTML = "---";
+
+                document.getElementById("tableJFeva").innerHTML = "---";
+                document.getElementById("tableJFsfu").innerHTML = "---";
+                document.getElementById("tableJFst").innerHTML = "---";
+                document.getElementById("tableJFcmd").innerHTML = "---";
+                document.getElementById("tableJFchurches").innerHTML = "---";
+                //document.getElementById("tableJFbudget").innerHTML = "---";
+
+                document.getElementById("tableGCMMeva").innerHTML = "---";
+                document.getElementById("tableGCMMsfu").innerHTML = "---";
+                document.getElementById("tableGCMMst").innerHTML = "---";
+                document.getElementById("tableGCMMcmd").innerHTML = "---";
+                document.getElementById("tableGCMMchurches").innerHTML = "---";
+                //document.getElementById("tableGCMMbudget").innerHTML = "---";
+
+                document.getElementById("tableR8eva").innerHTML = "---";
+                document.getElementById("tableR8sfu").innerHTML = "---";
+                document.getElementById("tableR8st").innerHTML = "---";
+                document.getElementById("tableR8cmd").innerHTML = "---";
+                document.getElementById("tableR8churches").innerHTML = "---";
+                //document.getElementById("tableR8budget").innerHTML = "---";
+
+                document.getElementById("tableTOTALeva").innerHTML = "---";
+                document.getElementById("tableTOTALsfu").innerHTML = "---";
+                document.getElementById("tableTOTALst").innerHTML = "---";
+                document.getElementById("tableTOTALcmd").innerHTML = "---";
+                document.getElementById("tableTOTALchurches").innerHTML = "---";
+                //document.getElementById("tableTOTALbudget").innerHTML = "---";
+            } else if (mYear == "2024") {
+                console.log("2024-2025");
+                $("#evan_num").html("---");
+                $("#sfu_num").html("---");
+                $("#st_num").html("---");
+                $("#cmd_num").html("---");
+                $("#churches_num").html("---");
+                //$("#budget_num").html("---");
+
+                document.getElementById("tableAIAeva").innerHTML = "---";
+                document.getElementById("tableAIAsfu").innerHTML = "---";
+                document.getElementById("tableAIAst").innerHTML = "---";
+                document.getElementById("tableAIAcmd").innerHTML = "---";
+                document.getElementById("tableAIAchurches").innerHTML = "---";
+                document.getElementById("tableAIAbudget").innerHTML = "---";
+
+                document.getElementById("tableGANeva").innerHTML = "---";
+                document.getElementById("tableGANsfu").innerHTML = "---";
+                document.getElementById("tableGANst").innerHTML = "---";
+                document.getElementById("tableGANcmd").innerHTML = "---";
+                document.getElementById("tableGANchurches").innerHTML = "---";
+                document.getElementById("tableGANbudget").innerHTML = "---";
+
+                document.getElementById("tableSReva").innerHTML = "---";
+                document.getElementById("tableSRsfu").innerHTML = "---";
+                document.getElementById("tableSRst").innerHTML = "---";
+                document.getElementById("tableSRcmd").innerHTML = "---";
+                document.getElementById("tableSRchurches").innerHTML = "---";
+                document.getElementById("tableSRbudget").innerHTML = "---";
+
+                document.getElementById("tableJFeva").innerHTML = "---";
+                document.getElementById("tableJFsfu").innerHTML = "---";
+                document.getElementById("tableJFst").innerHTML = "---";
+                document.getElementById("tableJFcmd").innerHTML = "---";
+                document.getElementById("tableJFchurches").innerHTML = "---";
+                document.getElementById("tableJFbudget").innerHTML = "---";
+
+                document.getElementById("tableGCMMeva").innerHTML = "---";
+                document.getElementById("tableGCMMsfu").innerHTML = "---";
+                document.getElementById("tableGCMMst").innerHTML = "---";
+                document.getElementById("tableGCMMcmd").innerHTML = "---";
+                document.getElementById("tableGCMMchurches").innerHTML = "---";
+                document.getElementById("tableGCMMbudget").innerHTML = "---";
+
+                document.getElementById("tableR8eva").innerHTML = "---";
+                document.getElementById("tableR8sfu").innerHTML = "---";
+                document.getElementById("tableR8st").innerHTML = "---";
+                document.getElementById("tableR8cmd").innerHTML = "---";
+                document.getElementById("tableR8churches").innerHTML = "---";
+                document.getElementById("tableR8budget").innerHTML = "---";
+
+                document.getElementById("tableTOTALeva").innerHTML = "---";
+                document.getElementById("tableTOTALsfu").innerHTML = "---";
+                document.getElementById("tableTOTALst").innerHTML = "---";
+                document.getElementById("tableTOTALcmd").innerHTML = "---";
+                document.getElementById("tableTOTALchurches").innerHTML = "---";
+                document.getElementById("tableTOTALbudget").innerHTML = "---";
+            } else if (mYear == "2025") {
+                console.log("2025-2026");
+                $("#evan_num").html("---");
+                $("#sfu_num").html("---");
+                $("#st_num").html("---");
+                $("#cmd_num").html("---");
+                $("#churches_num").html("---");
+                //$("#budget_num").html("---");
+
+                document.getElementById("tableAIAeva").innerHTML = "---";
+                document.getElementById("tableAIAsfu").innerHTML = "---";
+                document.getElementById("tableAIAst").innerHTML = "---";
+                document.getElementById("tableAIAcmd").innerHTML = "---";
+                document.getElementById("tableAIAchurches").innerHTML = "---";
+                //document.getElementById("tableAIAbudget").innerHTML = "---";
+
+                document.getElementById("tableGANeva").innerHTML = "---";
+                document.getElementById("tableGANsfu").innerHTML = "---";
+                document.getElementById("tableGANst").innerHTML = "---";
+                document.getElementById("tableGANcmd").innerHTML = "---";
+                document.getElementById("tableGANchurches").innerHTML = "---";
+                //document.getElementById("tableGANbudget").innerHTML = "---";
+
+                document.getElementById("tableSReva").innerHTML = "---";
+                document.getElementById("tableSRsfu").innerHTML = "---";
+                document.getElementById("tableSRst").innerHTML = "---";
+                document.getElementById("tableSRcmd").innerHTML = "---";
+                document.getElementById("tableSRchurches").innerHTML = "---";
+                //document.getElementById("tableSRbudget").innerHTML = "---";
+
+                document.getElementById("tableJFeva").innerHTML = "---";
+                document.getElementById("tableJFsfu").innerHTML = "---";
+                document.getElementById("tableJFst").innerHTML = "---";
+                document.getElementById("tableJFcmd").innerHTML = "---";
+                document.getElementById("tableJFchurches").innerHTML = "---";
+                //document.getElementById("tableJFbudget").innerHTML = "---";
+
+                document.getElementById("tableGCMMeva").innerHTML = "---";
+                document.getElementById("tableGCMMsfu").innerHTML = "---";
+                document.getElementById("tableGCMMst").innerHTML = "---";
+                document.getElementById("tableGCMMcmd").innerHTML = "---";
+                document.getElementById("tableGCMMchurches").innerHTML = "---";
+                //document.getElementById("tableGCMMbudget").innerHTML = "---";
+
+                document.getElementById("tableR8eva").innerHTML = "---";
+                document.getElementById("tableR8sfu").innerHTML = "---";
+                document.getElementById("tableR8st").innerHTML = "---";
+                document.getElementById("tableR8cmd").innerHTML = "---";
+                document.getElementById("tableR8churches").innerHTML = "---";
+                //document.getElementById("tableR8budget").innerHTML = "---";
+
+                document.getElementById("tableTOTALeva").innerHTML = "---";
+                document.getElementById("tableTOTALsfu").innerHTML = "---";
+                document.getElementById("tableTOTALst").innerHTML = "---";
+                document.getElementById("tableTOTALcmd").innerHTML = "---";
+                document.getElementById("tableTOTALchurches").innerHTML = "---";
+                //document.getElementById("tableTOTALbudget").innerHTML = "---";
+            } else {
+                $("#evan_num").html("---");
+                $("#sfu_num").html("---");
+                $("#st_num").html("---");
+                $("#cmd_num").html("---");
+                $("#churches_num").html("---");
+                //  $("#budget_num").html("---");
+
+                document.getElementById("tableAIAeva").innerHTML = "---";
+                document.getElementById("tableAIAsfu").innerHTML = "---";
+                document.getElementById("tableAIAst").innerHTML = "---";
+                document.getElementById("tableAIAcmd").innerHTML = "---";
+                document.getElementById("tableAIAchurches").innerHTML = "---";
+                //document.getElementById("tableAIAbudget").innerHTML = "---";
+
+                document.getElementById("tableGANeva").innerHTML = "---";
+                document.getElementById("tableGANsfu").innerHTML = "---";
+                document.getElementById("tableGANst").innerHTML = "---";
+                document.getElementById("tableGANcmd").innerHTML = "---";
+                document.getElementById("tableGANchurches").innerHTML = "---";
+                //document.getElementById("tableGANbudget").innerHTML = "---";
+
+                document.getElementById("tableSReva").innerHTML = "---";
+                document.getElementById("tableSRsfu").innerHTML = "---";
+                document.getElementById("tableSRst").innerHTML = "---";
+                document.getElementById("tableSRcmd").innerHTML = "---";
+                document.getElementById("tableSRchurches").innerHTML = "---";
+                document.getElementById("tableSRbudget").innerHTML = "---";
+
+                document.getElementById("tableJFeva").innerHTML = "---";
+                document.getElementById("tableJFsfu").innerHTML = "---";
+                document.getElementById("tableJFst").innerHTML = "---";
+                document.getElementById("tableJFcmd").innerHTML = "---";
+                document.getElementById("tableJFchurches").innerHTML = "---";
+                //document.getElementById("tableJFbudget").innerHTML = "---";
+
+                document.getElementById("tableGCMMeva").innerHTML = "---";
+                document.getElementById("tableGCMMsfu").innerHTML = "---";
+                document.getElementById("tableGCMMst").innerHTML = "---";
+                document.getElementById("tableGCMMcmd").innerHTML = "---";
+                document.getElementById("tableGCMMchurches").innerHTML = "---";
+                //document.getElementById("tableGCMMbudget").innerHTML = "---";
+
+                document.getElementById("tableR8eva").innerHTML = "---";
+                document.getElementById("tableR8sfu").innerHTML = "---";
+                document.getElementById("tableR8st").innerHTML = "---";
+                document.getElementById("tableR8cmd").innerHTML = "---";
+                document.getElementById("tableR8churches").innerHTML = "---";
+                document.getElementById("tableR8budget").innerHTML = "---";
+
+                document.getElementById("tableTOTALeva").innerHTML = "---";
+                document.getElementById("tableTOTALsfu").innerHTML = "---";
+                document.getElementById("tableTOTALst").innerHTML = "---";
+                document.getElementById("tableTOTALcmd").innerHTML = "---";
+                document.getElementById("tableTOTALchurches").innerHTML = "---";
+                //document.getElementById("tableTOTALbudget").innerHTML = "---";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
